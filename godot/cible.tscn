@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxwk8ii32nem"]
+
+[ext_resource type="Texture2D" uid="uid://kb7r1j0alj1u" path="res://img/cible.png" id="1_n0mqd"]
+[ext_resource type="Script" path="res://script/cible.gd" id="2_abdcw"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(-8.25836, -34.3862)
+scale = Vector2(0.295038, 0.295038)
+texture = ExtResource("1_n0mqd")
+script = ExtResource("2_abdcw")
