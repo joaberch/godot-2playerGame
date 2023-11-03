@@ -13,6 +13,7 @@ func _process(_delta):
 func kill():
 	# Cette fonction sera appelée pour tuer l'ennemi
 	queue_free()  # Détruisez l'ennemi
+	Global.score += 1
 
 func respawn():
 	# Cette fonction sera appelée pour réapparaître l'ennemi

@@ -15,6 +15,10 @@ run/main_scene="res://playground.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://img/cible.png"
 
+[autoload]
+
+Global="*res://script/global.gd"
+
 [input]
 
 mouse_click={

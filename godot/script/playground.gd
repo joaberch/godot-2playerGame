@@ -3,16 +3,28 @@ extends Node2D
 # Chargez la scène de l'ennemi (assurez-vous d'ajuster le chemin du fichier selon vos besoins)
 var enemy_scene = preload("res://cible.tscn")
 var timer = 0 #compte les frames
+var score = 0 #compte le score
+var boolean = false
 
-func _process(delta):
+func _process(_delta):
 	timer+=1
-	if timer % 50 == 0:	#how fast enemy spawn
+	if timer % 40 == 0:	#how fast enemy spawn
 		spawn_enemy()
 		timer = 0
 
 func _ready():
 	# Exemple d'utilisation de la méthode spawn_enemy
+	if !boolean:
+		Global.score = 0
+		boolean = true
+	
 	spawn_enemy()
+	
+	var score_label = Label.new()
+	score_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	score_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
+	score_label.text = "Score: " + str(Global.score)
+	add_child(score_label)
 
 func spawn_enemy():
 	# Créez une nouvelle instance de la classe Enemy (ennemi)
