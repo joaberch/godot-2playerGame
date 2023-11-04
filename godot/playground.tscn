@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://jf2dvqydy38u"]
+[gd_scene load_steps=6 format=3 uid="uid://jf2dvqydy38u"]
 
 [ext_resource type="Texture2D" uid="uid://e5mh2njsn6u5" path="res://img/background.png" id="1_0oq8m"]
 [ext_resource type="Script" path="res://script/playground.gd" id="1_5csvc"]
 [ext_resource type="Script" path="res://script/cible.gd" id="3_xolkw"]
+[ext_resource type="PackedScene" uid="uid://dy8mrgmvcbt4f" path="res://text_edit.tscn" id="4_88q4k"]
+[ext_resource type="Script" path="res://script/UserUI.gd" id="4_u87fm"]
 
 [node name="Playground" type="Node2D"]
 script = ExtResource("1_5csvc")
@@ -12,3 +14,16 @@ position = Vector2(578, 325.5)
 scale = Vector2(9.88136, 7.32222)
 texture = ExtResource("1_0oq8m")
 script = ExtResource("3_xolkw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_u87fm")
+
+[node name="TextEdit" parent="Control" instance=ExtResource("4_88q4k")]
+offset_left = 5.0
+offset_top = 9.0
+offset_right = 122.0
+offset_bottom = 61.0
