@@ -23,6 +23,7 @@ offset_bottom = 40.0
 script = ExtResource("4_u87fm")
 
 [node name="TextEdit" parent="Control" instance=ExtResource("4_88q4k")]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 9.0
 offset_right = 122.0
