@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var simultaneous_scene = preload("res://selection_menu_1.tscn").instantiate()
+var simultaneous_scene = preload("res://playground.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
