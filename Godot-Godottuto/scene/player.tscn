@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqrjb1j2mxi2u"]
+
+[ext_resource type="Texture2D" uid="uid://bwkf2kirrumfg" path="res://art/playerGrey_up1.png" id="1_1hmyt"]
+[ext_resource type="Texture2D" uid="uid://dubxw7ucsu70a" path="res://art/playerGrey_up2.png" id="2_betm4"]
+[ext_resource type="Texture2D" uid="uid://fxfoarrx55qx" path="res://art/playerGrey_walk1.png" id="3_2lhcv"]
+[ext_resource type="Texture2D" uid="uid://dkcd367f8d1nj" path="res://art/playerGrey_walk2.png" id="4_ycbyp"]
+
+[sub_resource type="GDScript" id="GDScript_53r55"]
+script/source = "extends CharacterBody2D
+
+const SPEED = 100.0
+
+func _physics_process(delta):
+#	# Handle Jump.
+#	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+#		pass
+#
+#	# Get the input direction and handle the movement
+#	# As good practice, you should replace UI actions with custom gameplay actions.
+#	var direction = Input.get_axis(\"Left\", \"Right\")
+#	if direction:
+#		velocity.x = direction * SPEED
+#	else:
+#		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	#Moving to the left
+	if Input.is_action_just_pressed(\"Left\"):
+		velocity.x -= SPEED
+	elif Input.is_action_just_pressed(\"Right\"):
+		velocity.x += SPEED
+	elif Input.is_action_just_pressed(\"Up\"):
+		velocity.y -= SPEED
+	elif Input.is_action_just_pressed(\"Down\"):
+		velocity.y += SPEED
+	move_and_slide()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdfbm"]
+radius = 55.0
+height = 138.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6lv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1hmyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_betm4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1hmyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_betm4")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2lhcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ycbyp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 3
+collision_mask = 3
+floor_constant_speed = true
+script = SubResource("GDScript_53r55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+shape = SubResource("CapsuleShape2D_gdfbm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i6lv5")
+animation = &"down"
