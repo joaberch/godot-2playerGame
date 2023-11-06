@@ -1,27 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1k8suctfyvan"]
+[gd_scene load_steps=8 format=3 uid="uid://c1k8suctfyvan"]
 
 [ext_resource type="Texture2D" uid="uid://e5mh2njsn6u5" path="res://img/background.png" id="1_jqsg2"]
 [ext_resource type="Texture2D" uid="uid://28evlustuhh4" path="res://img/selectionmenu1.png" id="2_yk8re"]
 [ext_resource type="Script" path="res://script/Selectionmenu1.gd" id="3_whmrl"]
 [ext_resource type="Texture2D" uid="uid://hvrwm2k5arum" path="res://img/arrow.png" id="4_502bi"]
+[ext_resource type="Script" path="res://script/title_selection_menu.gd" id="5_panb6"]
+[ext_resource type="Texture2D" uid="uid://hn55ch1r55ya" path="res://img/bouton-retour.png" id="6_n081d"]
+[ext_resource type="Script" path="res://script/back-button2HomeMenu.gd" id="7_oprer"]
 
 [node name="Selection1" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(584, 332)
+position = Vector2(576, 331)
 scale = Vector2(10, 7.53333)
 texture = ExtResource("1_jqsg2")
 
-[node name="Title" type="Label" parent="."]
-offset_left = 391.0
-offset_top = 47.0
-offset_right = 727.0
-offset_bottom = 99.0
-text = "                          Mode de jeu 1
-Appartition des cibles toutes les x secondes"
-
 [node name="Selectionmenu1" type="Sprite2D" parent="."]
-position = Vector2(571, 350)
+position = Vector2(557, 400)
 texture = ExtResource("2_yk8re")
 script = ExtResource("3_whmrl")
 
@@ -29,3 +24,25 @@ script = ExtResource("3_whmrl")
 position = Vector2(1027, 336)
 scale = Vector2(0.538298, 0.538298)
 texture = ExtResource("4_502bi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 41.0
+offset_bottom = 43.0
+script = ExtResource("5_panb6")
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 12.0
+offset_right = 790.0
+offset_bottom = 137.0
+
+[node name="Bouton-retour" type="Sprite2D" parent="."]
+position = Vector2(59, 585)
+scale = Vector2(0.12207, 0.12207)
+texture = ExtResource("6_n081d")
+script = ExtResource("7_oprer")

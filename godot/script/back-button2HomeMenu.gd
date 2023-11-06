@@ -4,6 +4,7 @@ extends Sprite2D
 func _ready():
 	pass
 
+
 # Called every frame
 func _process(_delta):
 	if Input.is_action_just_pressed("mouse_click"):
@@ -16,10 +17,9 @@ func _process(_delta):
 		
 		#if the play click inside the button
 		if (mouse_pos.x >= rect_min.x && mouse_pos.x <= rect_max.x && mouse_pos.y >= rect_min.y && mouse_pos.y <= rect_max.y):
-			play()
+			Go()
 
-func play():
+func Go():
 	# This is like autoloading the scene, only
 	# it happens after already loading the main scene.
-	get_tree().root.add_child(Global.SelectionMenu1)
-	
+	get_tree().root.add_child(Global.HomeMenu)

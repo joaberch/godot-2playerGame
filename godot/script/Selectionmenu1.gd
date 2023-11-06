@@ -1,14 +1,12 @@
 extends Sprite2D
 
-var simultaneous_scene = preload("res://playground.tscn").instantiate()
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("mouse_click"):
 		var mouse_pos = get_local_mouse_position()
 		
@@ -24,4 +22,4 @@ func _process(delta):
 func play():
 	# This is like autoloading the scene, only
 	# it happens after already loading the main scene.
-	get_tree().root.add_child(simultaneous_scene)
+	get_tree().root.add_child(Global.Game1)
