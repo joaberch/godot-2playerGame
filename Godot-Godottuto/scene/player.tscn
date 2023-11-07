@@ -9,30 +9,39 @@
 script/source = "extends CharacterBody2D
 
 const SPEED = 100.0
+var screen_size = get_viewport_rect().size
 
 func _physics_process(delta):
-#	# Handle Jump.
-#	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-#		pass
-#
-#	# Get the input direction and handle the movement
-#	# As good practice, you should replace UI actions with custom gameplay actions.
-#	var direction = Input.get_axis(\"Left\", \"Right\")
-#	if direction:
-#		velocity.x = direction * SPEED
-#	else:
-#		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
 	#Moving to the left
 	if Input.is_action_just_pressed(\"Left\"):
 		velocity.x -= SPEED
+	#Moving to the right
 	elif Input.is_action_just_pressed(\"Right\"):
 		velocity.x += SPEED
+	#Moving upward
 	elif Input.is_action_just_pressed(\"Up\"):
 		velocity.y -= SPEED
+	#Moving bottomward
 	elif Input.is_action_just_pressed(\"Down\"):
 		velocity.y += SPEED
+		
+	#Teleporting the player to the other side of the game
+	if position.x <= 0: #If he's going to the left he spawn to the right
+		position.x = 1180
+	elif position.x >= 1180: #If he's going to the right he spawn to the left
+		position.x=0
+	if position.y <=0: #If he's going up he spawn to the bottom
+		position.y=650
+	elif position.y>=650: #If he's going down he spawn upward
+		position.y=0
+	
+	#Animate the player
+	if velocity.y!=0:
+		pass
+	#Moving/sliding
 	move_and_slide()
+func CheckInput():
+	pass
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdfbm"]
@@ -77,13 +86,10 @@ animations = [{
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-collision_layer = 3
-collision_mask = 3
 floor_constant_speed = true
 script = SubResource("GDScript_53r55")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 0
 shape = SubResource("CapsuleShape2D_gdfbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
