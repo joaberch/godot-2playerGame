@@ -12,7 +12,7 @@ script/source = "extends CharacterBody2D
 var screen_size = get_viewport_rect().size
 @onready var animations = $AnimatedSprite2D
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	CheckInput()
 	CheckBorder()
 	AnimatePlayer()
@@ -48,7 +48,7 @@ func AnimatePlayer():
 	#Animate the player
 	if velocity.x == 0 && velocity.y == 0:
 		animations.stop()
-	if velocity.y!=0:
+	if velocity.y!=0 && abs(velocity.y)>abs(velocity.x):
 		if velocity.y < 0:
 			animations.play(\"up\")
 			animations.flip_v = false
@@ -56,7 +56,7 @@ func AnimatePlayer():
 			animations.play(\"up\")
 			animations.flip_v = true
 		
-	if velocity.x !=0:
+	elif velocity.x !=0:
 		if velocity.x > 0:
 			animations.play(\"walk\")
 			animations.flip_h = false

@@ -1,28 +1,57 @@
 extends CharacterBody2D
 
+@export var SPEED = 10.0
+var screen_size = get_viewport_rect().size
+@onready var animations = $AnimatedSprite2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+func _physics_process(_delta):
+	CheckInput()
+	CheckBorder()
+	AnimatePlayer()
+	#Moving/sliding
 	move_and_slide()
+
+func CheckInput():
+	#Moving to the left
+	if Input.is_action_pressed("Left"):
+		velocity.x -= SPEED
+	#Moving to the right
+	if Input.is_action_pressed("Right"):
+		velocity.x += SPEED
+	#Moving upward
+	if Input.is_action_pressed("Up"):
+		velocity.y -= SPEED
+	#Moving bottomward
+	if Input.is_action_pressed("Down"):
+		velocity.y += SPEED
+
+func CheckBorder():
+	#Teleporting the player to the other side of the game
+	if position.x <= 0: #If he's going to the left he spawn to the right
+		position.x = 1180
+	elif position.x >= 1180: #If he's going to the right he spawn to the left
+		position.x=0
+	if position.y <=0: #If he's going up he spawn to the bottom
+		position.y=650
+	elif position.y>=650: #If he's going down he spawn upward
+		position.y=0
+
+func AnimatePlayer():
+	#Animate the player
+	if velocity.x == 0 && velocity.y == 0:
+		animations.stop()
+	if velocity.y!=0 && abs(velocity.y)>abs(velocity.x):
+		if velocity.y < 0:
+			animations.play("up")
+			animations.flip_v = false
+		else:
+			animations.play("up")
+			animations.flip_v = true
+		
+	elif velocity.x !=0:
+		if velocity.x > 0:
+			animations.play("walk")
+			animations.flip_h = false
+		else:
+			animations.play("walk")
+			animations.flip_h = true
