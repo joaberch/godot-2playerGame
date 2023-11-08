@@ -8,10 +8,18 @@
 [sub_resource type="GDScript" id="GDScript_53r55"]
 script/source = "extends CharacterBody2D
 
-const SPEED = 100.0
+@export var SPEED = 100.0
 var screen_size = get_viewport_rect().size
+@onready var animations = $AnimatedSprite2D
 
 func _physics_process(delta):
+	CheckInput()
+	CheckBorder()
+	AnimatePlayer()
+	#Moving/sliding
+	move_and_slide()
+
+func CheckInput():
 	#Moving to the left
 	if Input.is_action_just_pressed(\"Left\"):
 		velocity.x -= SPEED
@@ -24,7 +32,8 @@ func _physics_process(delta):
 	#Moving bottomward
 	elif Input.is_action_just_pressed(\"Down\"):
 		velocity.y += SPEED
-		
+
+func CheckBorder():
 	#Teleporting the player to the other side of the game
 	if position.x <= 0: #If he's going to the left he spawn to the right
 		position.x = 1180
@@ -34,14 +43,15 @@ func _physics_process(delta):
 		position.y=650
 	elif position.y>=650: #If he's going down he spawn upward
 		position.y=0
-	
+
+func AnimatePlayer():
 	#Animate the player
-	if velocity.y!=0:
-		pass
-	#Moving/sliding
-	move_and_slide()
-func CheckInput():
-	pass
+	if velocity.x == 0 && velocity.y == 0:
+		animations.stop()
+	elif velocity.y!=0:
+		animations.play(\"up\")
+	elif velocity.x !=0:
+		animations.play(\"walk\")
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdfbm"]
@@ -62,21 +72,21 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_1hmyt")
-}, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": ExtResource("2_betm4")
+}, {
+"duration": 0.11,
+"texture": ExtResource("1_1hmyt")
 }],
 "loop": true,
-"name": &"down",
-"speed": 5.0
+"name": &"up",
+"speed": 2.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.4,
 "texture": ExtResource("3_2lhcv")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": ExtResource("4_ycbyp")
 }],
 "loop": true,
@@ -94,4 +104,4 @@ shape = SubResource("CapsuleShape2D_gdfbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i6lv5")
-animation = &"down"
+animation = &"walk"
