@@ -8,7 +8,7 @@
 [sub_resource type="GDScript" id="GDScript_53r55"]
 script/source = "extends CharacterBody2D
 
-@export var SPEED = 100.0
+@export var SPEED = 10.0
 var screen_size = get_viewport_rect().size
 @onready var animations = $AnimatedSprite2D
 
@@ -21,16 +21,16 @@ func _physics_process(delta):
 
 func CheckInput():
 	#Moving to the left
-	if Input.is_action_just_pressed(\"Left\"):
+	if Input.is_action_pressed(\"Left\"):
 		velocity.x -= SPEED
 	#Moving to the right
-	elif Input.is_action_just_pressed(\"Right\"):
+	if Input.is_action_pressed(\"Right\"):
 		velocity.x += SPEED
 	#Moving upward
-	elif Input.is_action_just_pressed(\"Up\"):
+	if Input.is_action_pressed(\"Up\"):
 		velocity.y -= SPEED
 	#Moving bottomward
-	elif Input.is_action_just_pressed(\"Down\"):
+	if Input.is_action_pressed(\"Down\"):
 		velocity.y += SPEED
 
 func CheckBorder():
@@ -48,10 +48,21 @@ func AnimatePlayer():
 	#Animate the player
 	if velocity.x == 0 && velocity.y == 0:
 		animations.stop()
-	elif velocity.y!=0:
-		animations.play(\"up\")
-	elif velocity.x !=0:
-		animations.play(\"walk\")
+	if velocity.y!=0:
+		if velocity.y < 0:
+			animations.play(\"up\")
+			animations.flip_v = false
+		else:
+			animations.play(\"up\")
+			animations.flip_v = true
+		
+	if velocity.x !=0:
+		if velocity.x > 0:
+			animations.play(\"walk\")
+			animations.flip_h = false
+		else:
+			animations.play(\"walk\")
+			animations.flip_h = true
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdfbm"]
@@ -105,3 +116,5 @@ shape = SubResource("CapsuleShape2D_gdfbm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i6lv5")
 animation = &"walk"
+frame = 1
+frame_progress = 0.455849
