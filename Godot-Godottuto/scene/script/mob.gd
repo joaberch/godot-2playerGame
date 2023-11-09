@@ -3,7 +3,9 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	#Getting one of the three random animation
+	var mob_types = $AnimatedSprite2D.sprite_frames.get_animation_names()
+	$AnimatedSprite2D.play(mob_types[randi() % mob_types.size()])
 
 func isOnScrren():
 	pass
