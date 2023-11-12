@@ -34,4 +34,3 @@ func movePlayer():
 		velocity.y = Global.playerspeed
 	elif Input.is_action_pressed("up"):
 		velocity.y = -Global.playerspeed
-	

@@ -1,6 +1,6 @@
 extends Node
 @export var playerspeed = 300
-@export var catvelocity = 100
+@export var catvelocity = 150
 
 var playerpositionx
 var playerpositiony

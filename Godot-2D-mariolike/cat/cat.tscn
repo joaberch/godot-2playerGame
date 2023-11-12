@@ -45,10 +45,12 @@ _data = {
 size = Vector2(13, 12)
 
 [node name="cat" type="CharacterBody2D"]
+position = Vector2(5, 12)
+collision_mask = 3
 script = ExtResource("1_1161q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, -5)
+position = Vector2(0, -1)
 texture = ExtResource("1_3s01y")
 hframes = 2
 
@@ -57,6 +59,6 @@ libraries = {
 "": SubResource("AnimationLibrary_cw2f0")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -6)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
+position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_lp1vq")
