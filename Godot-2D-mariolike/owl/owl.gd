@@ -1,17 +1,16 @@
 extends CharacterBody2D
 
 @onready var animations = $Sprite2D/AnimationPlayer
-const SPEED = 300.0
-const JUMP_VELOCITY = -200.0
 
 func _physics_process(delta):
 	animatePlayer()
 	movePlayer()
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept"):
-		velocity.y = JUMP_VELOCITY
 	move_and_slide()
+	GetValue()
+
+func GetValue():
+	Global.playerpositionx = global_position.x
+	Global.playerpositiony = global_position.y
 
 func animatePlayer():
 	if Input.is_action_pressed("ui_left"):
@@ -27,12 +26,12 @@ func movePlayer():
 	velocity.x=0
 	velocity.y=0
 	if Input.is_action_pressed("right"):
-		velocity.x = SPEED
+		velocity.x = Global.playerspeed
 	elif Input.is_action_pressed("left"):
-		velocity.x = -SPEED
+		velocity.x = -Global.playerspeed
 	
 	if Input.is_action_pressed("down"):
-		velocity.y = SPEED
+		velocity.y = Global.playerspeed
 	elif Input.is_action_pressed("up"):
-		velocity.y = -SPEED
+		velocity.y = -Global.playerspeed
 	
