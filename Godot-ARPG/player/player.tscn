@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://qt4you151exi"]
+[gd_scene load_steps=11 format=3 uid="uid://qt4you151exi"]
 
 [ext_resource type="Texture2D" uid="uid://benw8nnu8iskm" path="res://art/PlayerSprite.png" id="1_0s1ks"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_wc0ff"]
@@ -98,6 +98,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdl8j"]
 size = Vector2(14, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ic606"]
+size = Vector2(15, 15)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -109,7 +112,8 @@ texture = ExtResource("1_0s1ks")
 hframes = 4
 vframes = 7
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
 speed_scale = 3.0
 libraries = {
 "": SubResource("AnimationLibrary_3mvg3")
@@ -118,3 +122,11 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_cdl8j")
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_ic606")
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

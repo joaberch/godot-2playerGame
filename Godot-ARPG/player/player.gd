@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: int = 70
-@onready var animations = $AnimationPlayer
+@onready var animations = $Sprite2D/AnimationPlayer
 
 
 func handleInput():
@@ -31,3 +31,8 @@ func _physics_process(delta):
 	move_and_slide()
 	handleCollision()
 	updateAnimation()
+
+
+func _on_hurtbox_area_entered(area): #when an area is entering a player hitbox
+	if area.name == "hitbox":
+		print("hurt")
