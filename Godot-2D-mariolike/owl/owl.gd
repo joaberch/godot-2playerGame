@@ -5,8 +5,11 @@ extends CharacterBody2D
 func _physics_process(delta):
 	animatePlayer()
 	movePlayer()
-	move_and_slide()
 	GetValue()
+	move_and_slide()
+
+func respawn():
+	queue_redraw()
 
 func GetValue():
 	Global.playerpositionx = global_position.x
@@ -40,5 +43,8 @@ func _on_hurtbox_area_entered(area):
 		queue_free() #player die
 		
 		#Let the time for the cat to go back at the beginning
-		position.x = -20
-		position.y = -20
+		position.x = -200
+		position.y = -200
+		
+		#Start a timer
+		Global.timer = 100

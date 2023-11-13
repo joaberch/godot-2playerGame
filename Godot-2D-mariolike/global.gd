@@ -6,6 +6,7 @@ extends Node
 
 var playerpositionx
 var playerpositiony
+var newgame = false
 
 var timer = 0
 
@@ -16,4 +17,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if timer != 0:
+		--timer
+		if timer == 0:
+			print("restarting the game")
+			newgame = true
