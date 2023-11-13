@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://db081cukrbl7s"]
+[gd_scene load_steps=4 format=3 uid="uid://db081cukrbl7s"]
 
 [ext_resource type="PackedScene" uid="uid://cbmwlti3x1oho" path="res://owl/owl.tscn" id="1_aopnu"]
 [ext_resource type="PackedScene" uid="uid://cg5p341rdgtby" path="res://cat/cat.tscn" id="2_71fo2"]
+[ext_resource type="PackedScene" uid="uid://b6s7njae4wu45" path="res://lion/lion.tscn" id="3_boovr"]
 
 [node name="main" type="Node2D"]
 
@@ -11,4 +12,8 @@ scale = Vector2(3, 3)
 
 [node name="cat" parent="." instance=ExtResource("2_71fo2")]
 position = Vector2(68, 240)
+scale = Vector2(5, 5)
+
+[node name="lion" parent="." instance=ExtResource("3_boovr")]
+position = Vector2(68, 106)
 scale = Vector2(5, 5)

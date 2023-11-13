@@ -9,19 +9,19 @@ func _physics_process(delta):
 
 func attackowl():
 	if Global.playerpositionx > global_position.x+10:
-		velocity.x = Global.catvelocity
+		velocity.x = Global.catspeed
 		sprite.flip_h = false
 		animations.play("Right")
 	elif Global.playerpositionx < global_position.x-10:
 		sprite.flip_h = true
-		velocity.x = -Global.catvelocity
+		velocity.x = -Global.catspeed
 		animations.play("Right")
 	else:
 		velocity.x = 0
 	
 	if Global.playerpositiony > global_position.y:
-		velocity.y = Global.catvelocity
+		velocity.y = Global.catspeed
 	elif Global.playerpositiony < global_position.y:
-		velocity.y = -Global.catvelocity
+		velocity.y = -Global.catspeed
 	else:
 		velocity.y = 0
