@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bc0eadqfmdsqb" path="res://art/NinjaAdventure/Actor/Animals/Cat/SpriteSheet.png" id="1_3s01y"]
 [ext_resource type="Script" path="res://cat/cat.gd" id="1_1161q"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp1vq"]
+size = Vector2(10, 10)
+
 [sub_resource type="Animation" id="Animation_0gi5x"]
 length = 0.001
 tracks/0/type = "value"
@@ -41,15 +44,18 @@ _data = {
 "Right": SubResource("Animation_i8ets")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp1vq"]
-size = Vector2(5.5, 4)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jl41x"]
 size = Vector2(13, 11)
 
 [node name="cat" type="CharacterBody2D"]
 position = Vector2(5, 12)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_1161q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_lp1vq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
@@ -60,9 +66,6 @@ hframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_cw2f0")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lp1vq")
 
 [node name="enemyhitbox" type="Area2D" parent="."]
 

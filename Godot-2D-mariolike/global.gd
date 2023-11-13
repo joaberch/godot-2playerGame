@@ -1,7 +1,7 @@
 extends Node
 
 @export var owlspeed = 500
-@export var catspeed = 200
+@export var catspeed = 20
 @export var lionspeed = 200
 
 var playerpositionx
