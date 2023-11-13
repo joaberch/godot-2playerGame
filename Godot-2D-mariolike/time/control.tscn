@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cntdumnpxy4et"]
+
+[ext_resource type="Script" path="res://time/Control.gd" id="1_5ea8r"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 171.0
+offset_bottom = 40.0
+script = ExtResource("1_5ea8r")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 146.0
+offset_bottom = 51.0
+text = "fail"

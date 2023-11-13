@@ -39,5 +39,5 @@ func animatePlayer():
 		stringanimation = "walkdown"
 	elif Input.is_action_pressed("up-W"):
 		stringanimation = "walkup"
-		
+	
 	animationsprite.play(stringanimation)

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animations = $Sprite2D/AnimationPlayer
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	animatePlayer()
 	movePlayer()
 	GetValue()

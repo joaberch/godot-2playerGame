@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cbmwlti3x1oho" path="res://owl/owl.tscn" id="1_aopnu"]
 [ext_resource type="PackedScene" uid="uid://cg5p341rdgtby" path="res://cat/cat.tscn" id="2_71fo2"]
 [ext_resource type="PackedScene" uid="uid://b6s7njae4wu45" path="res://lion/lion.tscn" id="3_boovr"]
+[ext_resource type="PackedScene" uid="uid://dwsqx332s5bha" path="res://time/stopwatch.tscn" id="4_fxeaf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr82b"]
 size = Vector2(20, 540)
@@ -71,6 +72,8 @@ shape = SubResource("SegmentShape2D_4nnuq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("SegmentShape2D_l5n7j")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
-autostart = true
+[node name="Stopwatch" parent="." instance=ExtResource("4_fxeaf")]
+offset_left = 596.0
+offset_top = 37.0
+offset_right = 636.0
+offset_bottom = 60.0
