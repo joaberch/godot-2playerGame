@@ -1,7 +1,7 @@
 extends Node
 
 @export var owlspeed = 500
-@export var catspeed = 20
+@export var catspeed = 150
 @export var lionspeed = 200
 
 var playerpositionx
@@ -17,8 +17,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if timer != 0:
-		--timer
-		if timer == 0:
-			print("restarting the game")
-			newgame = true
+	if newgame:
+		newgame = false

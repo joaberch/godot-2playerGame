@@ -6,7 +6,15 @@ var stringanimation = ""
 func _physics_process(_delta):
 	movePlayer()
 	animatePlayer()
+	
+	if Global.newgame:
+		newgame()
+	
 	move_and_slide()
+
+func newgame():
+	position.x = 50
+	position.y = 150
 
 func movePlayer():
 	velocity.x=0

@@ -6,10 +6,11 @@ func _physics_process(delta):
 	animatePlayer()
 	movePlayer()
 	GetValue()
+	
+	if Global.newgame:
+		newgame()
+	
 	move_and_slide()
-
-func respawn():
-	queue_redraw()
 
 func GetValue():
 	Global.playerpositionx = global_position.x
@@ -40,11 +41,11 @@ func movePlayer():
 
 func _on_hurtbox_area_entered(area):
 	if area.name == "enemyhitbox":
-		queue_free() #player die
+		#queue_free() #player die
 		
-		#Let the time for the cat to go back at the beginning
-		position.x = -200
-		position.y = -200
-		
-		#Start a timer
-		Global.timer = 100
+		#Start a new game
+		Global.newgame = true
+
+func newgame():
+	position.x = 1100
+	position.y = 600

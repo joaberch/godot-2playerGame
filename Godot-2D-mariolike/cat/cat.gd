@@ -5,7 +5,13 @@ extends CharacterBody2D
 
 func _physics_process(_delta):
 	attackowl()
+	if Global.newgame:
+		newgame()
 	move_and_slide()
+
+func newgame():
+	position.x = -20
+	position.y = -20
 
 func attackowl():
 	if Global.playerpositionx > global_position.x+10:
