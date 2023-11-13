@@ -1,12 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://0g3lgbq42eps"]
+[gd_scene load_steps=6 format=3 uid="uid://0g3lgbq42eps"]
 
 [ext_resource type="Texture2D" uid="uid://e5mh2njsn6u5" path="res://img/background.png" id="1_5aika"]
 [ext_resource type="Texture2D" uid="uid://dl2h6lr0ali2j" path="res://img/Title.png" id="2_y2tps"]
 [ext_resource type="Texture2D" uid="uid://y1mb53bakjnv" path="res://img/go.png" id="3_qk6yw"]
 [ext_resource type="Texture2D" uid="uid://c2ndkiw250e00" path="res://img/Jouer-button.png" id="4_w6c6k"]
 [ext_resource type="Script" path="res://script/Jouer-button.gd" id="5_2h35u"]
-
-[sub_resource type="GDScript" id="GDScript_kpadw"]
 
 [node name="Menu" type="Node2D"]
 
@@ -29,12 +27,3 @@ position = Vector2(574, 288)
 scale = Vector2(0.547839, 0.547839)
 texture = ExtResource("4_w6c6k")
 script = ExtResource("5_2h35u")
-
-[node name="Scene_Manager" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 46.0
-offset_bottom = 46.0
-script = SubResource("GDScript_kpadw")
