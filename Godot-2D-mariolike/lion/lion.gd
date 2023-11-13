@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animationsprite = $SpriteSheet/AnimationPlayer
 var stringanimation = ""
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	movePlayer()
 	animatePlayer()
 	move_and_slide()

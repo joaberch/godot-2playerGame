@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animations = $Sprite2D/AnimationPlayer
 @onready var sprite = $Sprite2D
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	attackowl()
 	move_and_slide()
 

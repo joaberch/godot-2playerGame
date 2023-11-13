@@ -33,3 +33,12 @@ func movePlayer():
 		velocity.y = Global.owlspeed
 	elif Input.is_action_pressed("up"):
 		velocity.y = -Global.owlspeed
+
+
+func _on_hurtbox_area_entered(area):
+	if area.name == "enemyhitbox":
+		queue_free() #player die
+		
+		#Let the time for the cat to go back at the beginning
+		position.x = -20
+		position.y = -20
