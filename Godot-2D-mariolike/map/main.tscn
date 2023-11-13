@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://db081cukrbl7s"]
+[gd_scene load_steps=13 format=3 uid="uid://db081cukrbl7s"]
 
 [ext_resource type="PackedScene" uid="uid://cbmwlti3x1oho" path="res://owl/owl.tscn" id="1_aopnu"]
+[ext_resource type="Script" path="res://map/main.gd" id="1_dop7g"]
 [ext_resource type="PackedScene" uid="uid://cg5p341rdgtby" path="res://cat/cat.tscn" id="2_71fo2"]
 [ext_resource type="PackedScene" uid="uid://b6s7njae4wu45" path="res://lion/lion.tscn" id="3_boovr"]
-[ext_resource type="PackedScene" uid="uid://dwsqx332s5bha" path="res://time/stopwatch.tscn" id="4_fxeaf"]
+[ext_resource type="Script" path="res://map/Label.gd" id="5_af6t4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr82b"]
 size = Vector2(20, 540)
@@ -30,6 +31,7 @@ a = Vector2(87, -14)
 b = Vector2(-18, -140)
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_dop7g")
 
 [node name="owl" parent="." instance=ExtResource("1_aopnu")]
 position = Vector2(1100, 600)
@@ -45,35 +47,42 @@ scale = Vector2(5, 5)
 collision_layer = 3
 collision_mask = 3
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="border" type="StaticBody2D" parent="."]
 
-[node name="borderleft" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="borderleft" type="CollisionShape2D" parent="border"]
 position = Vector2(-10, 378)
 shape = SubResource("RectangleShape2D_dr82b")
 
-[node name="borderup" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="borderup" type="CollisionShape2D" parent="border"]
 position = Vector2(617.5, -10)
 shape = SubResource("RectangleShape2D_atuu3")
 
-[node name="borderdown" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="borderdown" type="CollisionShape2D" parent="border"]
 position = Vector2(566, 657)
 shape = SubResource("RectangleShape2D_7hage")
 
-[node name="borderright" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="borderright" type="CollisionShape2D" parent="border"]
 position = Vector2(1169.5, 323)
 shape = SubResource("RectangleShape2D_lacis")
 
-[node name="leftcoin" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="leftcoin" type="CollisionShape2D" parent="border"]
 shape = SubResource("SegmentShape2D_amgfo")
 
-[node name="leftcoin2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="leftcoin2" type="CollisionShape2D" parent="border"]
 shape = SubResource("SegmentShape2D_4nnuq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border"]
 shape = SubResource("SegmentShape2D_l5n7j")
 
-[node name="Stopwatch" parent="." instance=ExtResource("4_fxeaf")]
-offset_left = 596.0
-offset_top = 37.0
-offset_right = 636.0
-offset_bottom = 60.0
+[node name="Label" type="Label" parent="."]
+offset_left = 515.0
+offset_top = 31.0
+offset_right = 652.0
+offset_bottom = 98.0
+script = ExtResource("5_af6t4")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -7,10 +7,18 @@ func _physics_process(_delta):
 	movePlayer()
 	animatePlayer()
 	
-	if Global.newgame:
+	#If the owl is touched
+	if Global.changephase:
 		newgame()
 	
+	#If the game ends
+	if Global.endgame:
+		endgame()
+	
 	move_and_slide()
+
+func endgame():
+	queue_free()
 
 func newgame():
 	position.x = 50

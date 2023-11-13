@@ -12,8 +12,8 @@ config_version=5
 
 config/name="Godot-2DGame"
 config/description="The first player plays an owl and need to escape a cat who is chasing him, the second player is trying to catch the first player with the help of the cat"
-run/main_scene="res://main_copy.tscn"
-config/features=PackedStringArray("4.1", "GL Compatibility")
+run/main_scene="res://map/main.tscn"
+config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://art/NinjaAdventure/Actor/Monsters/Owl2/Faceset.png"
 
 [autoload]

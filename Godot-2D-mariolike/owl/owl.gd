@@ -7,8 +7,13 @@ func _physics_process(_delta):
 	movePlayer()
 	GetValue()
 	
-	if Global.newgame:
+	#If the owl is touched we change the phases
+	if Global.changephase:
 		newgame()
+	
+	#If the timer runs out
+	if Global.endgame:
+		queue_free()
 	
 	move_and_slide()
 
@@ -44,8 +49,11 @@ func _on_hurtbox_area_entered(area):
 		#queue_free() #player die
 		
 		#Start a new game
-		Global.newgame = true
+		Global.changephase = true
 
 func newgame():
 	position.x = 1100
 	position.y = 600
+
+func endgame():
+	pass
