@@ -20,8 +20,8 @@ func endgame():
 	queue_free()
 
 func newgame():
-	position.x = -20
-	position.y = -20
+	position.x = -50
+	position.y = -50
 
 func attackowl():
 	if Global.playerpositionx > global_position.x+10:
