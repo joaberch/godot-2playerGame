@@ -27,25 +27,37 @@ func newgame():
 func movePlayer():
 	velocity.x=0
 	velocity.y=0
-	if Input.is_action_pressed("right-D"):
-		velocity.x = Global.lionspeed
-	elif Input.is_action_pressed("left-A"):
-		velocity.x = -Global.lionspeed
-	if Input.is_action_pressed("down-S"):
-		velocity.y = Global.lionspeed
-	elif Input.is_action_pressed("up-W"):
-		velocity.y = -Global.lionspeed
+	
+	#If the player 2 is the lion
+	if Global.player1isowl:
+		if Input.is_action_pressed("right-D"):
+			velocity.x = Global.lionspeed
+		elif Input.is_action_pressed("left-A"):
+			velocity.x = -Global.lionspeed
+		if Input.is_action_pressed("down-S"):
+			velocity.y = Global.lionspeed
+		elif Input.is_action_pressed("up-W"):
+			velocity.y = -Global.lionspeed
+	else: #If the player 1 is the lion
+		if Input.is_action_pressed("right"):
+			velocity.x = Global.lionspeed
+		elif Input.is_action_pressed("left"):
+			velocity.x = -Global.lionspeed
+		if Input.is_action_pressed("down"):
+			velocity.y = Global.lionspeed
+		elif Input.is_action_pressed("up"):
+			velocity.y = -Global.lionspeed
 
 func animatePlayer():
 	stringanimation = "RESET"
-	if Input.is_action_pressed("right-D"):
+	if velocity.x>0:
 		stringanimation = "walkright"
-	elif Input.is_action_pressed("left-A"):
+	elif velocity.x<0:
 		stringanimation = "walkleft"
 	
-	if Input.is_action_pressed("down-S"):
+	if velocity.y>0:
 		stringanimation = "walkdown"
-	elif Input.is_action_pressed("up-W"):
+	elif velocity.y<0:
 		stringanimation = "walkup"
 	
 	animationsprite.play(stringanimation)

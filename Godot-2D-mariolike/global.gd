@@ -10,6 +10,7 @@ var playerpositiony
 var changephase = false
 var endgame = false
 var timeremaining : int
+var player1isowl = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
