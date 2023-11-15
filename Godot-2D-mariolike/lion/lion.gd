@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 @onready var animationsprite = $SpriteSheet/AnimationPlayer
+@onready var player1 = $Player1
+@onready var player2 = $Player2
 var stringanimation = ""
 
 func _physics_process(_delta):
 	movePlayer()
 	animatePlayer()
+	playerName()
 	
 	#If the owl is touched
 	if Global.changephase:
@@ -16,6 +19,14 @@ func _physics_process(_delta):
 		endgame()
 	
 	move_and_slide()
+
+func playerName():
+	if Global.player1isowl:
+		player1.region_enabled = true
+		player2.region_enabled = false
+	else:
+		player1.region_enabled = false
+		player2.region_enabled = true
 
 func endgame():
 	queue_free()

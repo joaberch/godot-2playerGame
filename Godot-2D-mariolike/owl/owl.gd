@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 @onready var animations = $Sprite2D/AnimationPlayer
+@onready var player1 = $Player1
+@onready var player2 = $Player2
 
 func _physics_process(_delta):
 	animatePlayer()
 	movePlayer()
 	GetValue()
+	playername()
 	
 	#If the owl is touched we change the phases
 	if Global.changephase:
@@ -16,6 +19,14 @@ func _physics_process(_delta):
 		queue_free()
 	
 	move_and_slide()
+
+func playername():
+	if Global.player1isowl:
+		player1.region_enabled = false
+		player2.region_enabled = true
+	else:
+		player1.region_enabled = true
+		player2.region_enabled = false
 
 func GetValue():
 	Global.playerpositionx = global_position.x
@@ -59,7 +70,6 @@ func movePlayer():
 
 func _on_hurtbox_area_entered(area):
 	if area.name == "enemyhitbox":
-		#queue_free() #player die
 		
 		#Start a new game
 		Global.changephase = true
@@ -68,6 +78,8 @@ func _on_hurtbox_area_entered(area):
 			Global.player1isowl = false
 		else:
 			Global.player1isowl = true
+		
+		Global.timeremaining = 61
 
 func changephase():
 	position.x = 1100

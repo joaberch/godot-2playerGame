@@ -10,7 +10,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	print(timer.time_left)
 	Global.timeremaining = timer.time_left
 	label.text = str(Global.timeremaining)
 
