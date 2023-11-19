@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animations = $Sprite2D/AnimationPlayer
 @onready var player1 = $Player1
 @onready var player2 = $Player2
+@onready var GameOver = $GameOver2
 
 func _physics_process(_delta):
 	animatePlayer()
@@ -80,6 +81,8 @@ func _on_hurtbox_area_entered(area):
 			Global.player1isowl = true
 		
 		Global.timeremaining = 61
+		
+		GameOver.play()
 
 func changephase():
 	position.x = 1100
