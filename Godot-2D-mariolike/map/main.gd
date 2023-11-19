@@ -13,6 +13,6 @@ func _process(_delta):
 	Global.timeremaining = timer.time_left
 	label.text = str(Global.timeremaining)
 
-
 func _on_timer_timeout():
 	Global.endgame = true
+
