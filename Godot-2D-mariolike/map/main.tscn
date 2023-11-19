@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://db081cukrbl7s"]
+[gd_scene load_steps=22 format=3 uid="uid://db081cukrbl7s"]
 
 [ext_resource type="PackedScene" uid="uid://cbmwlti3x1oho" path="res://owl/owl.tscn" id="1_aopnu"]
 [ext_resource type="Script" path="res://map/main.gd" id="1_dop7g"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b6pix18tyjodf" path="res://art/NinjaAdventure/Backgrounds/Tilesets/TilesetWater.png" id="5_hcf1p"]
 [ext_resource type="Texture2D" uid="uid://eh6bqm6otxt0" path="res://art/NinjaAdventure/Backgrounds/Tilesets/TilesetHouse.png" id="5_kyxge"]
 [ext_resource type="Texture2D" uid="uid://cuts5m3oc5w88" path="res://art/NinjaAdventure/Backgrounds/Tilesets/TilesetField.png" id="6_rkfk1"]
+[ext_resource type="FontFile" uid="uid://dhd5kcbn3k4fh" path="res://font/Pixeled.ttf" id="9_dvdyt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p830a"]
 texture = ExtResource("5_hcf1p")
@@ -1444,6 +1445,21 @@ func _process(_delta):
 	pass
 "
 
+[sub_resource type="LabelSettings" id="LabelSettings_f11uh"]
+font = ExtResource("9_dvdyt")
+font_size = 45
+font_color = Color(1, 0, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_n732l"]
+font = ExtResource("9_dvdyt")
+font_size = 45
+font_color = Color(0, 1, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_dop7g")
 
@@ -1507,5 +1523,25 @@ script = SubResource("GDScript_wsu7p")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
+
+[node name="player1win" type="Label" parent="."]
+visible = false
+offset_left = 399.0
+offset_top = 168.0
+offset_right = 678.0
+offset_bottom = 426.0
+text = "Player 1
+    WIN!!!"
+label_settings = SubResource("LabelSettings_f11uh")
+
+[node name="player2win" type="Label" parent="."]
+visible = false
+offset_left = 400.0
+offset_top = 170.0
+offset_right = 706.0
+offset_bottom = 428.0
+text = "Player 2
+    WIN!!!"
+label_settings = SubResource("LabelSettings_n732l")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
