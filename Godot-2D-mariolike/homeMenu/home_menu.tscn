@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1jdaf0caj24e"]
+[gd_scene load_steps=38 format=3 uid="uid://1jdaf0caj24e"]
 
 [ext_resource type="Script" path="res://homeMenu/home_menu.gd" id="1_ek3j0"]
 [ext_resource type="TileSet" uid="uid://c7ahos35bsmq0" path="res://map/main.tres" id="1_m512p"]
@@ -6,7 +6,129 @@
 [ext_resource type="Texture2D" uid="uid://05qpxjyw0pew" path="res://art/NinjaAdventure/Actor/Monsters/Owl2/Owl2.png" id="2_gk4fn"]
 [ext_resource type="Texture2D" uid="uid://boyqxe8el3v8n" path="res://art/NinjaAdventure/Actor/Characters/Lion/SpriteSheet.png" id="4_8em2h"]
 [ext_resource type="Texture2D" uid="uid://bc0eadqfmdsqb" path="res://art/NinjaAdventure/Actor/Animals/Cat/SpriteSheet.png" id="5_aib3y"]
+[ext_resource type="Texture2D" uid="uid://dvcsyrelp48b1" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog/Jump.png" id="6_6jpoa"]
 [ext_resource type="FontFile" uid="uid://dhd5kcbn3k4fh" path="res://font/Pixeled.ttf" id="6_bioi8"]
+[ext_resource type="Texture2D" uid="uid://drdj6m1sx5j0a" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Jump.png" id="9_jeleb"]
+[ext_resource type="Texture2D" uid="uid://cdqdt5h8rflet" path="res://art/NinjaAdventure/Actor/Characters/GoldKnight/SpriteSheet.png" id="10_yl21w"]
+[ext_resource type="Texture2D" uid="uid://8eyfckq7avf4" path="res://art/NinjaAdventure/Actor/Characters/Knight/SpriteSheet.png" id="11_v02k5"]
+[ext_resource type="Texture2D" uid="uid://c1lgb2gcu37na" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Faceset.png" id="12_5jvv3"]
+
+[sub_resource type="Animation" id="Animation_p31ck"]
+resource_name = "right"
+length = 0.4
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 7]
+}
+
+[sub_resource type="Animation" id="Animation_lfoa8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_beaxa"]
+_data = {
+"RESET": SubResource("Animation_lfoa8"),
+"right": SubResource("Animation_p31ck")
+}
+
+[sub_resource type="Animation" id="Animation_b0r77"]
+resource_name = "left"
+length = 0.4
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 6]
+}
+
+[sub_resource type="Animation" id="Animation_xlwbb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aupo8"]
+_data = {
+"RESET": SubResource("Animation_xlwbb"),
+"left": SubResource("Animation_b0r77")
+}
+
+[sub_resource type="Animation" id="Animation_g48v0"]
+resource_name = "left"
+length = 0.7
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_bp6kc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ddlsm"]
+_data = {
+"RESET": SubResource("Animation_bp6kc"),
+"left": SubResource("Animation_g48v0")
+}
 
 [sub_resource type="GDScript" id="GDScript_iox1g"]
 script/source = "extends Button
@@ -18,13 +140,8 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
-
-
-func _on_pressed():
-	scene.instantiate()
-	visible = false
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_qsjxf"]
@@ -33,6 +150,176 @@ font_size = 15
 font_color = Color(0, 0, 1, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_81tfs"]
+font = ExtResource("6_bioi8")
+font_size = 15
+font_color = Color(1, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2k3di"]
+font = ExtResource("6_bioi8")
+font_size = 15
+font_color = Color(0, 1, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_40ari"]
+resource_name = "right"
+length = 1.15
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_8igdv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oagt0"]
+_data = {
+"RESET": SubResource("Animation_8igdv"),
+"right": SubResource("Animation_40ari")
+}
+
+[sub_resource type="Animation" id="Animation_vrs1i"]
+resource_name = "left"
+length = 1.15
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_yeib4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1ioo"]
+_data = {
+"RESET": SubResource("Animation_yeib4"),
+"left": SubResource("Animation_vrs1i")
+}
+
+[sub_resource type="Animation" id="Animation_u88ky"]
+resource_name = "left"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 6, 10, 14]
+}
+
+[sub_resource type="Animation" id="Animation_wmawo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_arnm2"]
+_data = {
+"RESET": SubResource("Animation_wmawo"),
+"left": SubResource("Animation_u88ky")
+}
+
+[sub_resource type="Animation" id="Animation_o6co3"]
+resource_name = "right"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 7, 11, 15]
+}
+
+[sub_resource type="Animation" id="Animation_i66a5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_81vhp"]
+_data = {
+"RESET": SubResource("Animation_i66a5"),
+"right": SubResource("Animation_o6co3")
+}
 
 [node name="HomeMenu" type="Node2D"]
 script = ExtResource("1_ek3j0")
@@ -48,9 +335,11 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(786459, 1048579, 6, 786473, 1048579, 6, 786477, 1048579, 6)
+layer_1/tile_data = PackedInt32Array(786459, 1048579, 6, 786473, 1048579, 6, 786477, 1048579, 6, 1310747, 1048579, 6, 1310761, 1048579, 6, 1310765, 1048579, 6, 1310743, 1048579, 6)
 
-[node name="owlSprite" type="Sprite2D" parent="TileMap"]
+[node name="Minigame1" type="Node2D" parent="TileMap"]
+
+[node name="owlSprite" type="Sprite2D" parent="TileMap/Minigame1"]
 position = Vector2(441, 168)
 scale = Vector2(2, 2)
 texture = ExtResource("2_gk4fn")
@@ -58,7 +347,12 @@ hframes = 4
 vframes = 4
 frame = 3
 
-[node name="lionSprite" type="Sprite2D" parent="TileMap"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Minigame1/owlSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_beaxa")
+}
+
+[node name="lionSprite" type="Sprite2D" parent="TileMap/Minigame1"]
 position = Vector2(665, 168)
 scale = Vector2(2, 2)
 texture = ExtResource("4_8em2h")
@@ -66,14 +360,24 @@ hframes = 4
 vframes = 7
 frame = 2
 
-[node name="catSprite" type="Sprite2D" parent="TileMap"]
-position = Vector2(727, 170)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Minigame1/lionSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_aupo8")
+}
+
+[node name="catSprite" type="Sprite2D" parent="TileMap/Minigame1"]
+position = Vector2(728, 173)
 scale = Vector2(3, 3)
 texture = ExtResource("5_aib3y")
 flip_h = true
 hframes = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Minigame1/catSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_ddlsm")
+}
+
+[node name="Button" type="Button" parent="TileMap/Minigame1"]
 offset_left = 471.0
 offset_top = 176.0
 offset_right = 634.0
@@ -82,7 +386,7 @@ text = "Start the game"
 icon = ExtResource("1_nwuf2")
 script = SubResource("GDScript_iox1g")
 
-[node name="Label" type="Label" parent="."]
+[node name="Minigame1Winner" type="Label" parent="TileMap/Minigame1"]
 offset_left = 782.0
 offset_top = 176.0
 offset_right = 878.0
@@ -90,4 +394,109 @@ offset_bottom = 221.0
 text = "Winner :"
 label_settings = SubResource("LabelSettings_qsjxf")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Game1Player1win" type="Label" parent="TileMap/Minigame1/Minigame1Winner"]
+visible = false
+layout_mode = 0
+offset_left = 120.0
+offset_top = 3.0
+offset_right = 213.0
+offset_bottom = 48.0
+text = "Player 1"
+label_settings = SubResource("LabelSettings_81tfs")
+
+[node name="Game1pPayer2win" type="Label" parent="TileMap/Minigame1/Minigame1Winner"]
+visible = false
+layout_mode = 0
+offset_left = 120.0
+offset_top = 3.0
+offset_right = 229.0
+offset_bottom = 52.0
+text = "Player 2"
+label_settings = SubResource("LabelSettings_2k3di")
+
+[node name="Minigame2" type="Node2D" parent="TileMap"]
+
+[node name="Frog1" type="Sprite2D" parent="TileMap/Minigame2"]
+position = Vector2(442, 299)
+texture = ExtResource("6_6jpoa")
+flip_h = true
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Minigame2/Frog1"]
+libraries = {
+"": SubResource("AnimationLibrary_oagt0")
+}
+
+[node name="Frog2" type="Sprite2D" parent="TileMap/Minigame2"]
+position = Vector2(664, 300)
+texture = ExtResource("9_jeleb")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Minigame2/Frog2"]
+libraries = {
+"": SubResource("AnimationLibrary_r1ioo")
+}
+
+[node name="knight2" type="Sprite2D" parent="TileMap/Minigame2"]
+position = Vector2(729, 297)
+scale = Vector2(2, 2)
+texture = ExtResource("10_yl21w")
+hframes = 4
+vframes = 7
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Minigame2/knight2"]
+libraries = {
+"": SubResource("AnimationLibrary_arnm2")
+}
+
+[node name="knight1" type="Sprite2D" parent="TileMap/Minigame2"]
+position = Vector2(378, 298)
+scale = Vector2(2, 2)
+texture = ExtResource("11_v02k5")
+hframes = 4
+vframes = 7
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Minigame2/knight1"]
+libraries = {
+"": SubResource("AnimationLibrary_81vhp")
+}
+
+[node name="Minigame2Winner" type="Label" parent="TileMap/Minigame2"]
+offset_left = 778.0
+offset_top = 300.0
+offset_right = 874.0
+offset_bottom = 345.0
+text = "Winner :"
+label_settings = SubResource("LabelSettings_qsjxf")
+
+[node name="Game2Player1win" type="Label" parent="TileMap/Minigame2/Minigame2Winner"]
+visible = false
+layout_mode = 0
+offset_left = 120.0
+offset_top = 3.0
+offset_right = 213.0
+offset_bottom = 48.0
+text = "Player 1"
+label_settings = SubResource("LabelSettings_81tfs")
+
+[node name="Game2Player2win" type="Label" parent="TileMap/Minigame2/Minigame2Winner"]
+visible = false
+layout_mode = 0
+offset_left = 120.0
+offset_top = 3.0
+offset_right = 229.0
+offset_bottom = 52.0
+text = "Player 2"
+label_settings = SubResource("LabelSettings_2k3di")
+
+[node name="Button" type="Button" parent="TileMap/Minigame2"]
+offset_left = 471.0
+offset_top = 297.0
+offset_right = 634.0
+offset_bottom = 343.0
+text = "Start the game"
+icon = ExtResource("12_5jvv3")
+
+[connection signal="pressed" from="TileMap/Minigame1/Button" to="." method="_on_button_pressed"]
