@@ -4,8 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Activate the good button for the minigame 
-	if Global.minigame1winner: 
+	if Global.minigame1winner:
 		buttonGame1.disabled = true
 	
 	#Display the winner of the minigame played
@@ -24,5 +23,6 @@ func _ready():
 	$TileMap/Minigame2/knight2/AnimationPlayer.play("left")
 	$TileMap/Minigame2/knight1/AnimationPlayer.play("right")
 
-func _on_button_pressed():
+func _on_button_pressed(): #If the button for the first minigame is pressed
+	buttonGame1.disabled = true
 	get_tree().root.add_child(Global.sceneminigame1)

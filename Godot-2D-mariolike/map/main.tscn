@@ -23,9 +23,9 @@ size = Vector2(35, 686)
 
 [sub_resource type="LabelSettings" id="LabelSettings_aosaj"]
 font = ExtResource("9_dvdyt")
-font_size = 30
+font_size = 15
 font_color = Color(0, 0, 0, 1)
-outline_size = 8
+outline_size = 4
 
 [sub_resource type="GDScript" id="GDScript_wsu7p"]
 script/source = "extends Label
@@ -84,7 +84,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(458812, 196611, 17, 262204, 327683, 17, 458809, 327683, 17, 458815, 327683, 17, 655420, 327683, 17, 2228229, 196611, 21, 2097157, 327683, 21, 2228226, 327683, 21, 2228232, 327683, 21, 2424837, 327683, 21, 786468, 1114116, 10, 1572919, 1114116, 10)
+layer_3/tile_data = PackedInt32Array(458812, 196611, 17, 262204, 327683, 17, 458809, 327683, 17, 458815, 327683, 17, 655420, 327683, 17, 786468, 1114116, 10, 1572919, 1114116, 10, 2424863, 327683, 21, 2228255, 196611, 21, 2228252, 327683, 21, 2228258, 327683, 21, 2097183, 327683, 21)
 metadata/_edit_lock_ = true
 
 [node name="owl" parent="." instance=ExtResource("1_aopnu")]
