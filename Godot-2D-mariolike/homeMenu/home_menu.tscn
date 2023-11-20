@@ -1,11 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://1jdaf0caj24e"]
+[gd_scene load_steps=10 format=3 uid="uid://1jdaf0caj24e"]
 
+[ext_resource type="Script" path="res://homeMenu/home_menu.gd" id="1_ek3j0"]
 [ext_resource type="TileSet" uid="uid://c7ahos35bsmq0" path="res://map/main.tres" id="1_m512p"]
 [ext_resource type="Texture2D" uid="uid://bpyxgom1bmuco" path="res://art/NinjaAdventure/Actor/Monsters/Owl2/Faceset.png" id="1_nwuf2"]
 [ext_resource type="Texture2D" uid="uid://05qpxjyw0pew" path="res://art/NinjaAdventure/Actor/Monsters/Owl2/Owl2.png" id="2_gk4fn"]
 [ext_resource type="Texture2D" uid="uid://boyqxe8el3v8n" path="res://art/NinjaAdventure/Actor/Characters/Lion/SpriteSheet.png" id="4_8em2h"]
 [ext_resource type="Texture2D" uid="uid://bc0eadqfmdsqb" path="res://art/NinjaAdventure/Actor/Animals/Cat/SpriteSheet.png" id="5_aib3y"]
 [ext_resource type="FontFile" uid="uid://dhd5kcbn3k4fh" path="res://font/Pixeled.ttf" id="6_bioi8"]
+
+[sub_resource type="GDScript" id="GDScript_iox1g"]
+script/source = "extends Button
+
+var scene = preload(\"res://map/main.tscn\")
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_pressed():
+	scene.instantiate()
+	visible = false
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_qsjxf"]
 font = ExtResource("6_bioi8")
@@ -15,6 +35,7 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="HomeMenu" type="Node2D"]
+script = ExtResource("1_ek3j0")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_m512p")
@@ -59,6 +80,7 @@ offset_right = 634.0
 offset_bottom = 222.0
 text = "Start the game"
 icon = ExtResource("1_nwuf2")
+script = SubResource("GDScript_iox1g")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 782.0
@@ -67,3 +89,5 @@ offset_right = 878.0
 offset_bottom = 221.0
 text = "Winner :"
 label_settings = SubResource("LabelSettings_qsjxf")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

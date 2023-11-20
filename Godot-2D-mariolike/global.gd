@@ -5,6 +5,8 @@ extends Node
 @export var lionspeed = 300
 @export var timer = 60 #Timer before the game ends
 
+var minigamenumber = 1
+
 var playerpositionx
 var playerpositiony
 var changephase = false
