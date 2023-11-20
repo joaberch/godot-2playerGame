@@ -16,7 +16,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(1769501, 4, 12, 1769502, 65540, 12, 1835037, 4, 13, 1835038, 65540, 13)
+layer_1/tile_data = PackedInt32Array()
 
 [node name="Knight" parent="." instance=ExtResource("2_6c22i")]
 position = Vector2(227, 497)

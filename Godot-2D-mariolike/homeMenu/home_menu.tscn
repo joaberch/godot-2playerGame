@@ -404,7 +404,7 @@ offset_bottom = 48.0
 text = "Player 1"
 label_settings = SubResource("LabelSettings_81tfs")
 
-[node name="Game1pPayer2win" type="Label" parent="TileMap/Minigame1/Minigame1Winner"]
+[node name="Game1Player2win" type="Label" parent="TileMap/Minigame1/Minigame1Winner"]
 visible = false
 layout_mode = 0
 offset_left = 120.0

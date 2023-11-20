@@ -12,7 +12,7 @@ func _ready():
 	if Global.minigame1winner == 1:
 		$TileMap/Minigame1/Minigame1Winner/Game1Player1win.visible = true
 	if Global.minigame1winner == 2:
-		$TileMap/Minigame2/Minigame2Winner/Game2Player2win.visible = true
+		$TileMap/Minigame1/Minigame1Winner/Game1Player2win.visible = true
 	
 	#Starting the animation
 	$TileMap/Minigame1/owlSprite/AnimationPlayer.play("right")
