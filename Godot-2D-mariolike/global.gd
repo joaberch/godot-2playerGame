@@ -3,6 +3,7 @@ extends Node
 ############################################ Scene #######################
 @onready var sceneminigame1 = preload("res://map/main.tscn").instantiate()
 @onready var scenehomeMenu = preload("res://homeMenu/home_menu.tscn").instantiate()
+@onready var sceneminigame2 = preload("res://map2/main_2.tscn").instantiate()
 
 #################################### Mini Game 1 Variable ########################
 @export var owlspeed = 500
@@ -20,6 +21,7 @@ var player1isowl = true
 #################################### Game variable ##############################
 
 var minigame1winner
+var minigame2winner
 
 ##################################### Function #############################
 

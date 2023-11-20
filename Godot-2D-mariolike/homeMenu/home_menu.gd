@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var buttonGame1 = $TileMap/Minigame1/Button
+@onready var buttonGame1 = $TileMap/Minigame1/Button1
+@onready var buttonGame2 = $TileMap/Minigame2/Button2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +24,13 @@ func _ready():
 	$TileMap/Minigame2/knight2/AnimationPlayer.play("left")
 	$TileMap/Minigame2/knight1/AnimationPlayer.play("right")
 
-func _on_button_pressed(): #If the button for the first minigame is pressed
+func _on_button_1_pressed():
 	buttonGame1.disabled = true
+	buttonGame2.disabled = true
 	get_tree().root.add_child(Global.sceneminigame1)
+
+
+func _on_button_2_pressed():
+	buttonGame2.disabled = true
+	buttonGame1.disabled = true
+	get_tree().root.add_child(Global.sceneminigame2)

@@ -377,7 +377,7 @@ libraries = {
 "": SubResource("AnimationLibrary_ddlsm")
 }
 
-[node name="Button" type="Button" parent="TileMap/Minigame1"]
+[node name="Button1" type="Button" parent="TileMap/Minigame1"]
 offset_left = 471.0
 offset_top = 176.0
 offset_right = 634.0
@@ -491,7 +491,7 @@ offset_bottom = 52.0
 text = "Player 2"
 label_settings = SubResource("LabelSettings_2k3di")
 
-[node name="Button" type="Button" parent="TileMap/Minigame2"]
+[node name="Button2" type="Button" parent="TileMap/Minigame2"]
 offset_left = 471.0
 offset_top = 297.0
 offset_right = 634.0
@@ -499,4 +499,5 @@ offset_bottom = 343.0
 text = "Start the game"
 icon = ExtResource("12_5jvv3")
 
-[connection signal="pressed" from="TileMap/Minigame1/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TileMap/Minigame1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="TileMap/Minigame2/Button2" to="." method="_on_button_2_pressed"]
