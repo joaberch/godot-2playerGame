@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d4huv2471c1x8"]
 
 [ext_resource type="TileSet" uid="uid://c7ahos35bsmq0" path="res://map/main.tres" id="1_5kxhx"]
-[ext_resource type="Texture2D" uid="uid://8eyfckq7avf4" path="res://art/NinjaAdventure/Actor/Characters/Knight/SpriteSheet.png" id="2_6wncu"]
+[ext_resource type="PackedScene" uid="uid://battftbxfwxc3" path="res://Knight/knight.tscn" id="2_6c22i"]
 
 [node name="main2" type="Node2D"]
 
@@ -18,9 +18,5 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(1769501, 4, 12, 1769502, 65540, 12, 1835037, 4, 13, 1835038, 65540, 13)
 
-[node name="SpriteSheet" type="Sprite2D" parent="."]
-position = Vector2(296, 426)
-scale = Vector2(3, 3)
-texture = ExtResource("2_6wncu")
-hframes = 4
-vframes = 7
+[node name="Knight" parent="." instance=ExtResource("2_6c22i")]
+position = Vector2(227, 497)

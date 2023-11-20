@@ -13,6 +13,21 @@
 [ext_resource type="Texture2D" uid="uid://8eyfckq7avf4" path="res://art/NinjaAdventure/Actor/Characters/Knight/SpriteSheet.png" id="11_v02k5"]
 [ext_resource type="Texture2D" uid="uid://c1lgb2gcu37na" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Faceset.png" id="12_5jvv3"]
 
+[sub_resource type="Animation" id="Animation_lfoa8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
 [sub_resource type="Animation" id="Animation_p31ck"]
 resource_name = "right"
 length = 0.4
@@ -31,7 +46,13 @@ tracks/0/keys = {
 "values": [3, 7]
 }
 
-[sub_resource type="Animation" id="Animation_lfoa8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_beaxa"]
+_data = {
+"RESET": SubResource("Animation_lfoa8"),
+"right": SubResource("Animation_p31ck")
+}
+
+[sub_resource type="Animation" id="Animation_xlwbb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -43,13 +64,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_beaxa"]
-_data = {
-"RESET": SubResource("Animation_lfoa8"),
-"right": SubResource("Animation_p31ck")
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_b0r77"]
@@ -70,7 +85,13 @@ tracks/0/keys = {
 "values": [2, 6]
 }
 
-[sub_resource type="Animation" id="Animation_xlwbb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aupo8"]
+_data = {
+"RESET": SubResource("Animation_xlwbb"),
+"left": SubResource("Animation_b0r77")
+}
+
+[sub_resource type="Animation" id="Animation_bp6kc"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -82,13 +103,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aupo8"]
-_data = {
-"RESET": SubResource("Animation_xlwbb"),
-"left": SubResource("Animation_b0r77")
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_g48v0"]
@@ -107,21 +122,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_bp6kc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ddlsm"]
@@ -165,6 +165,21 @@ font_color = Color(0, 1, 0, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_8igdv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_40ari"]
 resource_name = "right"
 length = 1.15
@@ -183,7 +198,13 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_8igdv"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oagt0"]
+_data = {
+"RESET": SubResource("Animation_8igdv"),
+"right": SubResource("Animation_40ari")
+}
+
+[sub_resource type="Animation" id="Animation_yeib4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -196,12 +217,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_oagt0"]
-_data = {
-"RESET": SubResource("Animation_8igdv"),
-"right": SubResource("Animation_40ari")
 }
 
 [sub_resource type="Animation" id="Animation_vrs1i"]
@@ -222,7 +237,13 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_yeib4"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1ioo"]
+_data = {
+"RESET": SubResource("Animation_yeib4"),
+"left": SubResource("Animation_vrs1i")
+}
+
+[sub_resource type="Animation" id="Animation_wmawo"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -234,13 +255,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1ioo"]
-_data = {
-"RESET": SubResource("Animation_yeib4"),
-"left": SubResource("Animation_vrs1i")
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_u88ky"]
@@ -261,7 +276,13 @@ tracks/0/keys = {
 "values": [2, 6, 10, 14]
 }
 
-[sub_resource type="Animation" id="Animation_wmawo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_arnm2"]
+_data = {
+"RESET": SubResource("Animation_wmawo"),
+"left": SubResource("Animation_u88ky")
+}
+
+[sub_resource type="Animation" id="Animation_i66a5"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -273,13 +294,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_arnm2"]
-_data = {
-"RESET": SubResource("Animation_wmawo"),
-"left": SubResource("Animation_u88ky")
+"values": [3]
 }
 
 [sub_resource type="Animation" id="Animation_o6co3"]
@@ -298,21 +313,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [3, 7, 11, 15]
-}
-
-[sub_resource type="Animation" id="Animation_i66a5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_81vhp"]
