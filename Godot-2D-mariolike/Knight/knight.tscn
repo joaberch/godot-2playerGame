@@ -7,24 +7,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfh6l"]
 size = Vector2(14, 15)
 
-[sub_resource type="Animation" id="Animation_1ykkq"]
-resource_name = "left"
-length = 0.6
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [2, 6, 10, 14]
-}
-
 [sub_resource type="Animation" id="Animation_2jlst"]
 length = 0.001
 tracks/0/type = "value"
@@ -38,24 +20,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_tx7ea"]
-resource_name = "right"
-length = 0.6
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [3, 7, 11, 15]
 }
 
 [sub_resource type="Animation" id="Animation_ik8mq"]
@@ -74,6 +38,42 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 4, 8, 12]
+}
+
+[sub_resource type="Animation" id="Animation_1ykkq"]
+resource_name = "left"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 6, 10, 14]
+}
+
+[sub_resource type="Animation" id="Animation_tx7ea"]
+resource_name = "right"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 7, 11, 15]
 }
 
 [sub_resource type="Animation" id="Animation_l1t30"]
@@ -122,7 +122,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_t1obo")
 hframes = 4
 vframes = 7
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpriteSheet"]
 libraries = {
