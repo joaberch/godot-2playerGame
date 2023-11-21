@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dn8eetcylcnyy" path="res://art/art/player1.png" id="2_6kuaw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfh6l"]
-size = Vector2(14, 15)
+size = Vector2(14, 4.16667)
 
 [sub_resource type="Animation" id="Animation_2jlst"]
 length = 0.001
@@ -112,7 +112,7 @@ scale = Vector2(3, 3)
 script = ExtResource("1_0rqcw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -7.66666)
+position = Vector2(-3, 3.16667)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_nfh6l")
 
