@@ -1,5 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://csskfr74la48u"]
 
+[ext_resource type="Script" path="res://greenfrog/greenfrog.gd" id="1_2jywf"]
 [ext_resource type="Texture2D" uid="uid://bvvgtcxhc6tk5" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog/Idle40x40.png" id="1_we0o7"]
 [ext_resource type="Texture2D" uid="uid://bkjfckpvq00n6" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog/Attack.png" id="2_8bqjr"]
 [ext_resource type="Texture2D" uid="uid://ccodcflubpwk" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog/Charge.png" id="3_ud48t"]
@@ -175,16 +176,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sficd"]
-size = Vector2(20, 3)
-
 [node name="greenfrog" type="CharacterBody2D"]
+script = ExtResource("1_2jywf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kfe0a")
-animation = &"jump"
-frame_progress = 0.735485
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
-shape = SubResource("RectangleShape2D_sficd")
+animation = &"idle"

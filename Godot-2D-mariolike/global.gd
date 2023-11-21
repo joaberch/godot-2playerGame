@@ -11,15 +11,21 @@ extends Node
 @export var lionspeed = 300
 @export var timer = 60 #Timer before the game ends
 
-@export var knightspeed = 400
-@export var goldknightspeed = 400
-
 var playerpositionx
 var playerpositiony
 var changephase = false
 var endgame = false
 var timeremaining : int
 var player1isowl = true
+
+################################### Mini Game 2 Variable #######################
+
+@export var knightspeed = 400
+@export var goldknightspeed = 400
+var knightpositionx
+var knightpositiony
+@export var greenFrogVelocity = 200
+@export var redFrogVelocity = 200
 
 #################################### Game variable ##############################
 

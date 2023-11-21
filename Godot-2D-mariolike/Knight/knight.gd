@@ -6,8 +6,13 @@ var stringanimation = ""
 
 func _physics_process(delta):
 	moveplayer()
+	getPosition()
 	animateplayer()
 	move_and_slide()
+
+func getPosition():
+	Global.knightpositionx = global_position.x
+	Global.knightpositiony = global_position.y
 
 func moveplayer():
 	velocity.x=0
