@@ -7,8 +7,8 @@ extends Node
 
 #################################### Mini Game 1 Variable ########################
 @export var owlspeed = 500
-@export var catspeed = 200
-@export var lionspeed = 300
+@export var catspeed = 250
+@export var lionspeed = 400
 @export var timer = 60 #Timer before the game ends
 
 var playerpositionx

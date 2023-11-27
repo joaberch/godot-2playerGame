@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animation = $AnimatedSprite2D
 var animationString
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	moveToAttackGoldKnight()
 	animate()
 	move_and_slide()

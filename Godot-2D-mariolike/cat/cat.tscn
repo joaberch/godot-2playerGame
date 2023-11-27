@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg5p341rdgtby"]
+[gd_scene load_steps=9 format=3 uid="uid://cg5p341rdgtby"]
 
 [ext_resource type="Texture2D" uid="uid://bc0eadqfmdsqb" path="res://art/NinjaAdventure/Actor/Animals/Cat/SpriteSheet.png" id="1_3s01y"]
 [ext_resource type="Script" path="res://cat/cat.gd" id="1_1161q"]
@@ -47,6 +47,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jl41x"]
 size = Vector2(13, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72tge"]
+size = Vector2(8, 2)
+
 [node name="cat" type="CharacterBody2D"]
 position = Vector2(5, 12)
 collision_layer = 7
@@ -72,3 +75,12 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyhitbox"]
 position = Vector2(-0.5, -1.5)
 shape = SubResource("RectangleShape2D_jl41x")
+
+[node name="footdetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="footdetection"]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_72tge")
+
+[connection signal="area_entered" from="footdetection" to="." method="_on_footdetection_area_entered"]
+[connection signal="area_exited" from="footdetection" to="." method="_on_footdetection_area_exited"]

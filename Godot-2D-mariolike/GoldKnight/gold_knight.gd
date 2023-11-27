@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 var stringanimation = ""
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	moveplayer()
 	getPosition()
 	animateplayer()

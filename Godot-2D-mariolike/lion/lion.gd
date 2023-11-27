@@ -73,3 +73,14 @@ func animatePlayer():
 		stringanimation = "walkup"
 	
 	animationsprite.play(stringanimation)
+
+
+
+func _on_footdetection_area_entered(area):
+	if area.name == "slow":
+		checkslow = 2
+
+
+func _on_footdetection_area_exited(area):
+	if area.name == "slow":
+		checkslow = 1

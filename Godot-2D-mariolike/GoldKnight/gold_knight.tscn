@@ -4,6 +4,39 @@
 [ext_resource type="Texture2D" uid="uid://cdqdt5h8rflet" path="res://art/NinjaAdventure/Actor/Characters/GoldKnight/SpriteSheet.png" id="1_v1e8e"]
 [ext_resource type="Texture2D" uid="uid://1uvgd6mcey44" path="res://art/art/Player2.png" id="2_c21br"]
 
+[sub_resource type="Animation" id="Animation_dhbyc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_re7yu"]
+resource_name = "down"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 8, 12]
+}
+
 [sub_resource type="Animation" id="Animation_wu17i"]
 resource_name = "left"
 length = 0.6
@@ -19,21 +52,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [2, 6, 10, 14]
-}
-
-[sub_resource type="Animation" id="Animation_dhbyc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_wo0w6"]
@@ -72,24 +90,6 @@ tracks/0/keys = {
 "values": [1, 5, 9, 13]
 }
 
-[sub_resource type="Animation" id="Animation_re7yu"]
-resource_name = "down"
-length = 0.6
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 4, 8, 12]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p8dfs"]
 _data = {
 "RESET": SubResource("Animation_dhbyc"),
@@ -106,6 +106,8 @@ size = Vector2(30.5, 8.5)
 size = Vector2(32, 30.5)
 
 [node name="GoldKnight" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_mf13c")
 
 [node name="SpriteSheet" type="Sprite2D" parent="."]
@@ -114,7 +116,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_v1e8e")
 hframes = 4
 vframes = 7
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpriteSheet"]
 libraries = {
