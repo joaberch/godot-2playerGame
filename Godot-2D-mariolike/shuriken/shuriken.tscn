@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ppm4hhyklivi"]
+
+[ext_resource type="Texture2D" uid="uid://b5h53fstdxgdt" path="res://art/NinjaAdventure/HUD/Shuriken.png" id="1_kn1qm"]
+[ext_resource type="Script" path="res://shuriken/shuriken.gd" id="1_wtptv"]
+
+[node name="shuriken" type="RigidBody2D"]
+script = ExtResource("1_wtptv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kn1qm")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+polygon = PackedVector2Array(-3, -8, 1, -8, 1, -7, 2, -7, 2, -6, 3, -6, 3, -4, 4, -4, 4, -3, 8, -3, 8, 1, 7, 1, 7, 2, 6, 2, 6, 3, 4, 3, 4, 4, 3, 4, 3, 8, -1, 8, -1, 7, -2, 7, -2, 6, -3, 6, -3, 4, -4, 4, -4, 3, -8, 3, -8, -1, -7, -1, -7, -2, -6, -2, -6, -3, -4, -3, -4, -4, -3, -4)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3, -8, 1, -8, 1, -7, 2, -7, 2, -6, 3, -6, 3, -4, 4, -4, 4, -3, 8, -3, 8, 1, 7, 1, 7, 2, 6, 2, 6, 3, 4, 3, 4, 4, 3, 4, 3, 8, -1, 8, -1, 7, -2, 7, -2, 6, -3, 6, -3, 4, -4, 4, -4, 3, -8, 3, -8, -1, -7, -1, -7, -2, -6, -2, -6, -3, -4, -3, -4, -4, -3, -4)

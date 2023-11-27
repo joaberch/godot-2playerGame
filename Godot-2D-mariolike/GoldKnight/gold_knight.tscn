@@ -37,6 +37,21 @@ tracks/0/keys = {
 "values": [4, 0, 12, 8]
 }
 
+[sub_resource type="Animation" id="Animation_3kpfw"]
+resource_name = "downIdle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_wu17i"]
 resource_name = "left"
 length = 0.6
@@ -53,6 +68,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [6, 2, 14, 10]
+}
+
+[sub_resource type="Animation" id="Animation_2kmbj"]
+resource_name = "leftIdle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_wo0w6"]
@@ -73,6 +103,21 @@ tracks/0/keys = {
 "values": [7, 3, 15, 11]
 }
 
+[sub_resource type="Animation" id="Animation_us6ga"]
+resource_name = "rightIdle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
 [sub_resource type="Animation" id="Animation_oe0iv"]
 resource_name = "up"
 length = 0.6
@@ -91,36 +136,6 @@ tracks/0/keys = {
 "values": [5, 1, 13, 9]
 }
 
-[sub_resource type="Animation" id="Animation_us6ga"]
-resource_name = "rightIdle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-
-[sub_resource type="Animation" id="Animation_2kmbj"]
-resource_name = "leftIdle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-
 [sub_resource type="Animation" id="Animation_2vw80"]
 resource_name = "upIdle"
 tracks/0/type = "value"
@@ -134,21 +149,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_3kpfw"]
-resource_name = "downIdle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p8dfs"]
