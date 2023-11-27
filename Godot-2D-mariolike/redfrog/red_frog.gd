@@ -4,15 +4,15 @@ extends CharacterBody2D
 var animationString
 
 func _physics_process(delta):
-	moveToAttackKnight()
+	moveToAttackGoldKnight()
 	animate()
 	move_and_slide()
 
-func moveToAttackKnight():
-	if position.x < Global.knightpositionx-10:
-		velocity.x = Global.greenFrogVelocity
-	elif position.x > Global.knightpositionx+10:
-		velocity.x = -Global.greenFrogVelocity
+func moveToAttackGoldKnight():
+	if position.x < Global.goldKnightPositionx-10:
+		velocity.x = Global.redFrogVelocity
+	elif position.x > Global.goldKnightPositionx+10:
+		velocity.x = -Global.redFrogVelocity
 	else:
 		velocity.x = 0
 		attack()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4huv2471c1x8"]
+[gd_scene load_steps=6 format=3 uid="uid://d4huv2471c1x8"]
 
 [ext_resource type="TileSet" uid="uid://c7ahos35bsmq0" path="res://map/main.tres" id="1_5kxhx"]
 [ext_resource type="PackedScene" uid="uid://battftbxfwxc3" path="res://Knight/knight.tscn" id="2_6c22i"]
 [ext_resource type="PackedScene" uid="uid://cm4y0qscqi53m" path="res://GoldKnight/gold_knight.tscn" id="3_kh817"]
 [ext_resource type="PackedScene" uid="uid://csskfr74la48u" path="res://greenfrog/greenfrog.tscn" id="4_cqyxh"]
+[ext_resource type="PackedScene" uid="uid://cxqlff8btud34" path="res://redfrog/red_frog.tscn" id="5_hxdbb"]
 
 [node name="main2" type="Node2D"]
 
@@ -51,4 +52,8 @@ scale = Vector2(2, 2)
 
 [node name="greenfrog" parent="." instance=ExtResource("4_cqyxh")]
 position = Vector2(188, 57)
+scale = Vector2(3, 3)
+
+[node name="redFrog" parent="." instance=ExtResource("5_hxdbb")]
+position = Vector2(588, 42)
 scale = Vector2(3, 3)

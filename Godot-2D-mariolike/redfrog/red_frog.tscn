@@ -1,0 +1,211 @@
+[gd_scene load_steps=32 format=3 uid="uid://cxqlff8btud34"]
+
+[ext_resource type="Script" path="res://redfrog/red_frog.gd" id="1_idh5r"]
+[ext_resource type="Texture2D" uid="uid://dm23rpmjqjarg" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Charge.png" id="1_va25d"]
+[ext_resource type="Texture2D" uid="uid://bsncwkenvhd0o" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Attack.png" id="2_s7g8i"]
+[ext_resource type="Texture2D" uid="uid://ck76ehlh1v60u" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Hit.png" id="3_rfmfc"]
+[ext_resource type="Texture2D" uid="uid://dbclalj5ph0wj" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Idle.png" id="4_uhb0a"]
+[ext_resource type="Texture2D" uid="uid://drdj6m1sx5j0a" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Jump.png" id="5_40nbn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2papt"]
+atlas = ExtResource("1_va25d")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqoip"]
+atlas = ExtResource("1_va25d")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0vjb"]
+atlas = ExtResource("1_va25d")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bx4x"]
+atlas = ExtResource("1_va25d")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddlvr"]
+atlas = ExtResource("1_va25d")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cll4"]
+atlas = ExtResource("1_va25d")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0upu6"]
+atlas = ExtResource("1_va25d")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojjug"]
+atlas = ExtResource("2_s7g8i")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcedc"]
+atlas = ExtResource("2_s7g8i")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixswp"]
+atlas = ExtResource("2_s7g8i")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xg1i"]
+atlas = ExtResource("3_rfmfc")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bai0m"]
+atlas = ExtResource("3_rfmfc")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg7b2"]
+atlas = ExtResource("3_rfmfc")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lvu3"]
+atlas = ExtResource("4_uhb0a")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4til1"]
+atlas = ExtResource("4_uhb0a")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5suc"]
+atlas = ExtResource("4_uhb0a")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxv35"]
+atlas = ExtResource("4_uhb0a")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8h4x"]
+atlas = ExtResource("4_uhb0a")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdgf7"]
+atlas = ExtResource("5_40nbn")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edvna"]
+atlas = ExtResource("5_40nbn")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcrfj"]
+atlas = ExtResource("5_40nbn")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_747wk"]
+atlas = ExtResource("5_40nbn")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmlg1"]
+atlas = ExtResource("5_40nbn")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85k76"]
+atlas = ExtResource("5_40nbn")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oj42c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2papt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqoip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0vjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bx4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddlvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cll4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0upu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojjug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcedc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixswp")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xg1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bai0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg7b2")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lvu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4til1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5suc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxv35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8h4x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdgf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edvna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcrfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_747wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmlg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85k76")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[node name="redFrog" type="CharacterBody2D"]
+script = ExtResource("1_idh5r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oj42c")
+animation = &"hit"

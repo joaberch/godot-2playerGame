@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://csskfr74la48u"]
+[gd_scene load_steps=32 format=3 uid="uid://csskfr74la48u"]
 
 [ext_resource type="Script" path="res://greenfrog/greenfrog.gd" id="1_2jywf"]
 [ext_resource type="Texture2D" uid="uid://bvvgtcxhc6tk5" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog/Idle40x40.png" id="1_we0o7"]
 [ext_resource type="Texture2D" uid="uid://bkjfckpvq00n6" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog/Attack.png" id="2_8bqjr"]
 [ext_resource type="Texture2D" uid="uid://ccodcflubpwk" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog/Charge.png" id="3_ud48t"]
 [ext_resource type="Texture2D" uid="uid://dvcsyrelp48b1" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog/Jump.png" id="4_c8kxr"]
+[ext_resource type="Texture2D" uid="uid://crd7tmnqi6g60" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog/Hit.png" id="4_v8hjh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_viovh"]
 atlas = ExtResource("3_ud48t")
@@ -44,6 +45,18 @@ region = Rect2(40, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kjiuw"]
 atlas = ExtResource("2_8bqjr")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gwm1"]
+atlas = ExtResource("4_v8hjh")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra5sd"]
+atlas = ExtResource("4_v8hjh")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6ru6"]
+atlas = ExtResource("4_v8hjh")
 region = Rect2(80, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgxgs"]
@@ -134,6 +147,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7gwm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra5sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6ru6")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jgxgs")
 }, {
 "duration": 1.0,
@@ -181,4 +208,4 @@ script = ExtResource("1_2jywf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kfe0a")
-animation = &"idle"
+animation = &"attack"

@@ -24,6 +24,9 @@ var player1isowl = true
 @export var goldknightspeed = 400
 var knightpositionx
 var knightpositiony
+
+var goldKnightPositionx
+var goldKnightPositiony
 @export var greenFrogVelocity = 200
 @export var redFrogVelocity = 200
 
