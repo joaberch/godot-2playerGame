@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animation = $SpriteSheet/AnimationPlayer
 
-var stringanimation = ""
+var stringanimation = "downIdle"
 var direction
 
 func _physics_process(_delta):
@@ -53,6 +53,8 @@ func animateplayer():
 			stringanimation = "downIdle"
 		elif direction == "up":
 			stringanimation = "upIdle"
+		else:
+			stringanimation = "RESET"
 		
 	
 	animation.play(stringanimation)

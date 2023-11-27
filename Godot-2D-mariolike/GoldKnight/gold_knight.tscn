@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cm4y0qscqi53m"]
+[gd_scene load_steps=16 format=3 uid="uid://cm4y0qscqi53m"]
 
 [ext_resource type="Script" path="res://GoldKnight/gold_knight.gd" id="1_mf13c"]
 [ext_resource type="Texture2D" uid="uid://cdqdt5h8rflet" path="res://art/NinjaAdventure/Actor/Characters/GoldKnight/SpriteSheet.png" id="1_v1e8e"]
@@ -23,7 +23,7 @@ tracks/0/keys = {
 resource_name = "down"
 length = 0.6
 loop_mode = 1
-step = 0.15
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,13 +34,14 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 4, 8, 12]
+"values": [4, 0, 12, 8]
 }
 
 [sub_resource type="Animation" id="Animation_wu17i"]
 resource_name = "left"
 length = 0.6
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,14 +52,14 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [2, 6, 10, 14]
+"values": [6, 2, 14, 10]
 }
 
 [sub_resource type="Animation" id="Animation_wo0w6"]
 resource_name = "right"
 length = 0.6
 loop_mode = 1
-step = 0.15
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -69,14 +70,14 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [3, 7, 11, 15]
+"values": [7, 3, 15, 11]
 }
 
 [sub_resource type="Animation" id="Animation_oe0iv"]
 resource_name = "up"
 length = 0.6
 loop_mode = 1
-step = 0.15
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -87,16 +88,80 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [1, 5, 9, 13]
+"values": [5, 1, 13, 9]
+}
+
+[sub_resource type="Animation" id="Animation_us6ga"]
+resource_name = "rightIdle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_2kmbj"]
+resource_name = "leftIdle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_2vw80"]
+resource_name = "upIdle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_3kpfw"]
+resource_name = "downIdle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p8dfs"]
 _data = {
 "RESET": SubResource("Animation_dhbyc"),
 "down": SubResource("Animation_re7yu"),
+"downIdle": SubResource("Animation_3kpfw"),
 "left": SubResource("Animation_wu17i"),
+"leftIdle": SubResource("Animation_2kmbj"),
 "right": SubResource("Animation_wo0w6"),
-"up": SubResource("Animation_oe0iv")
+"rightIdle": SubResource("Animation_us6ga"),
+"up": SubResource("Animation_oe0iv"),
+"upIdle": SubResource("Animation_2vw80")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp80u"]
