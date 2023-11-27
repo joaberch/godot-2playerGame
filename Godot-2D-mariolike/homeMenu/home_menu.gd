@@ -27,10 +27,11 @@ func _ready():
 func _on_button_1_pressed():
 	buttonGame1.disabled = true
 	buttonGame2.disabled = true
-	get_tree().root.add_child(Global.sceneminigame1)
+	#get_tree().root.add_child(Global.sceneminigame1)
+	get_tree().change_scene_to_file(Global.sceneminigame1)
 
 
 func _on_button_2_pressed():
 	buttonGame2.disabled = true
 	buttonGame1.disabled = true
-	get_tree().root.add_child(Global.sceneminigame2)
+	get_tree().change_scene_to_file(Global.sceneminigame2)

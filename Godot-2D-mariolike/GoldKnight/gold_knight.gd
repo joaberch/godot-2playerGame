@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 var stringanimation = "downIdle"
 var direction
+var weapon = "fist"
 
 func _physics_process(_delta):
 	moveplayer()
