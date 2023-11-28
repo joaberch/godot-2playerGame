@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var animation = $SpriteSheet/AnimationPlayer
-@onready var attackCooldown = $attackCooldown
 
 var stringanimation = "downIdle"
 var direction
@@ -14,18 +13,7 @@ func _physics_process(_delta):
 	moveplayer()
 	getPosition()
 	animateplayer()
-	attack()
 	move_and_slide()
-
-func attack():
-	if velocity.x == 0 && velocity.y == 0:
-		if !checkAttack:
-			checkAttack = true
-			attackCooldown.start()
-		++cptr
-		if cptr >= 50:
-			cptr = 0
-			checkIsAttacking = false
 
 func getPosition():
 	Global.knightpositionx = global_position.x
@@ -46,49 +34,32 @@ func moveplayer():
 		velocity.y = -Global.knightspeed
 
 func animateplayer():
-	if !checkIsAttacking:
-		if velocity.x > 0:
-			stringanimation = "right"
-			direction = "right"
-		elif velocity.x < 0:
-			stringanimation = "left"
-			direction = "left"
+	if velocity.x > 0:
+		stringanimation = "right"
+		direction = "right"
+	elif velocity.x < 0:
+		stringanimation = "left"
+		direction = "left"
 		
-		if velocity.y > 0:
-			stringanimation = "down"
-			direction = "down"
-		elif velocity.y < 0:
-			stringanimation = "up"
-			direction = "up"
-		
-		if velocity.x == 0 && velocity.y == 0:
-			if direction == "left":
-				stringanimation = "leftIdle"
-			elif direction == "right":
-				stringanimation = "rightIdle"
-			elif direction == "down":
-				stringanimation = "downIdle"
-			elif direction == "up":
-				stringanimation = "upIdle"
-			else:
-				stringanimation = "RESET"
-			
-	animation.play(stringanimation)
-
-
-func _on_attack_cooldown_timeout():
-	checkAttack = false
+	if velocity.y > 0:
+		stringanimation = "down"
+		direction = "down"
+	elif velocity.y < 0:
+		stringanimation = "up"
+		direction = "up"
+	
 	if velocity.x == 0 && velocity.y == 0:
-		print("attack")
-		checkIsAttacking = true
-		if direction == "right":
-			stringanimation = "attackRight"
-		elif direction == "left":
-			stringanimation = "attackLeft"
+		if direction == "left":
+			stringanimation = "leftIdle"
+		elif direction == "right":
+			stringanimation = "rightIdle"
 		elif direction == "down":
-			stringanimation = "attackDown"
+			stringanimation = "downIdle"
+		elif direction == "up":
+			stringanimation = "upIdle"
 		else:
-			stringanimation = "attackUp"
+			stringanimation = "RESET"
 		
+	animation.play(stringanimation)
 
 

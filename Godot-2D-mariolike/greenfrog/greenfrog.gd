@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 @onready var animation = $AnimatedSprite2D
+@onready var timerAttackCooldown = $AttackCooldown
 var animationString
+var Shuriken = preload("res://shuriken/shuriken.tscn")
 
 func _physics_process(_delta):
 	moveToAttackKnight()
@@ -25,8 +27,15 @@ func animate():
 		animationString = "jump"
 		animation.flip_h = false
 	else:
+		attack()
 		animationString = "attack"
 	animation.play(animationString)
 
 func attack():
-	pass
+	timerAttackCooldown.start()
+
+
+func _on_attack_cooldown_timeout():
+	print("attack")
+	Shuriken.instantiate()
+	add_child(Shuriken)

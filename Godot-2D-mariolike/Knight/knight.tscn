@@ -268,7 +268,3 @@ shape = SubResource("RectangleShape2D_mfhfy")
 position = Vector2(-1, -33.3333)
 scale = Vector2(0.143055, 0.143055)
 texture = ExtResource("2_6kuaw")
-
-[node name="attackCooldown" type="Timer" parent="."]
-
-[connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]

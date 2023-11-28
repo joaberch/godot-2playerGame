@@ -29,6 +29,9 @@ var goldKnightPositionx
 var goldKnightPositiony
 @export var greenFrogVelocity = 200
 @export var redFrogVelocity = 200
+@export var ShurikenVelocity = 200
+
+var checkIsKnight
 
 #################################### Game variable ##############################
 
