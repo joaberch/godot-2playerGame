@@ -61,5 +61,8 @@ func animateplayer():
 			stringanimation = "RESET"
 		
 	animation.play(stringanimation)
+	
+func player():
+	pass
 
 

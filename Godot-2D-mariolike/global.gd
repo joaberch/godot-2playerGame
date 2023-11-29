@@ -37,6 +37,7 @@ var checkIsKnight
 
 var minigame1winner
 var minigame2winner
+var minigame3winner
 
 ##################################### Function #############################
 
