@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpgkvoccyuiur"]
+
+[ext_resource type="Script" path="res://pinkFish/pink_fish.gd" id="1_t6jb5"]
+[ext_resource type="Texture2D" uid="uid://drnx43ejxi2s8" path="res://art/NinjaAdventure/Actor/Animals/Fish/SpriteSheetWhite.png" id="1_uxlxl"]
+[ext_resource type="Texture2D" uid="uid://1uvgd6mcey44" path="res://art/art/Player2.png" id="2_8q3rj"]
+
+[node name="pinkFish" type="CharacterBody2D"]
+script = ExtResource("1_t6jb5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_uxlxl")
+hframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(3, 3)
+polygon = PackedVector2Array(-4, -4, 1, -4, 1, -3, 1, -3, 3, -3, 3, -2, 5, -2, 5, -3, 6, -3, 6, -4, 7, -4, 7, -3, 8, -3, 8, 3, 7, 3, 7, 4, 6, 4, 6, 3, 5, 3, 5, 2, 3, 2, 3, 3, 1, 3, 1, 4, -4, 4, -4, 3, -6, 3, -6, 2, -7, 2, -7, -2, -6, -2, -6, -3, -4, -3)
+
+[node name="Player2" type="Sprite2D" parent="."]
+position = Vector2(4, -25)
+scale = Vector2(0.133869, 0.133869)
+texture = ExtResource("2_8q3rj")

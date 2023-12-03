@@ -33,6 +33,10 @@ var goldKnightPositiony
 
 var checkIsKnight
 
+################################### Mini Game 3 Variable
+@export var redFishVelocity = 5
+@export var pinkFishVelocity = 5
+
 #################################### Game variable ##############################
 
 var minigame1winner
