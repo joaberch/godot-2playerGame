@@ -36,6 +36,6 @@ func attack():
 
 
 func _on_attack_cooldown_timeout():
-	print("attack")
+	print("green frog attack")
 	Shuriken.instantiate()
 	#add_child(Shuriken)

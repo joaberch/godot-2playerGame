@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cdqdt5h8rflet" path="res://art/NinjaAdventure/Actor/Characters/GoldKnight/SpriteSheet.png" id="1_v1e8e"]
 [ext_resource type="Texture2D" uid="uid://1uvgd6mcey44" path="res://art/art/Player2.png" id="2_c21br"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cp80u"]
+size = Vector2(30.5, 8.5)
+
 [sub_resource type="Animation" id="Animation_dhbyc"]
 length = 0.001
 tracks/0/type = "value"
@@ -164,14 +167,15 @@ _data = {
 "upIdle": SubResource("Animation_2vw80")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cp80u"]
-size = Vector2(30.5, 8.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7f6k7"]
 size = Vector2(32, 30.5)
 
 [node name="GoldKnight" type="CharacterBody2D"]
 script = ExtResource("1_mf13c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.25)
+shape = SubResource("RectangleShape2D_cp80u")
 
 [node name="SpriteSheet" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
@@ -184,10 +188,6 @@ vframes = 7
 libraries = {
 "": SubResource("AnimationLibrary_p8dfs")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10.25)
-shape = SubResource("RectangleShape2D_cp80u")
 
 [node name="hitbox" type="Area2D" parent="."]
 position = Vector2(0, 1)
