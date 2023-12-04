@@ -59,4 +59,4 @@ func _on_button_3_pressed():
 	buttonGame1.disabled = true
 	buttonGame2.disabled = true
 	buttonGame3.disabled = true
-	get_tree().change_scene_to_file("res://map3/main_3.tscn")
+	get_tree().change_scene_to_file(Global.sceneminigame3)

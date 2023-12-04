@@ -6,7 +6,12 @@ var animationString
 func _physics_process(_delta):
 	moveToAttackGoldKnight()
 	animate()
+	checkIfGameHasEnded()
 	move_and_slide()
+
+func checkIfGameHasEnded():
+	if Global.minigame2winner:
+		queue_free()
 
 func moveToAttackGoldKnight():
 	if position.x < Global.goldKnightPositionx-10:

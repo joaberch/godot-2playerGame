@@ -8,7 +8,12 @@ var Shuriken = preload("res://shuriken/shuriken.tscn")
 func _physics_process(_delta):
 	moveToAttackKnight()
 	animate()
+	checkIfGameHasEnded()
 	move_and_slide()
+
+func checkIfGameHasEnded():
+	if Global.minigame2winner:
+		queue_free()
 
 func moveToAttackKnight():
 	if position.x < Global.knightpositionx-10:

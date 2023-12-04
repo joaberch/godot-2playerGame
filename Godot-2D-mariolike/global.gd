@@ -4,6 +4,7 @@ extends Node
 @onready var sceneminigame1 = "res://map/main.tscn"
 @onready var scenehomeMenu = "res://homeMenu/home_menu.tscn"
 @onready var sceneminigame2 = "res://map2/main_2.tscn"
+@onready var sceneminigame3 = "res://map3/main_3.tscn"
 
 #################################### Mini Game 1 Variable ########################
 @export var owlspeed = 500
@@ -24,7 +25,7 @@ var player1isowl = true
 @export var goldknightspeed = 400
 var knightpositionx
 var knightpositiony
-var shurikencooldown = 3
+var shurikencooldown = 1.5
 
 var knightDamageTaken = 0
 var goldKnightDamageTaken = 0

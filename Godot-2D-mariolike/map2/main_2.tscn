@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4huv2471c1x8"]
+[gd_scene load_steps=16 format=3 uid="uid://d4huv2471c1x8"]
 
 [ext_resource type="Script" path="res://map2/main_2.gd" id="1_02j1p"]
 [ext_resource type="TileSet" uid="uid://c7ahos35bsmq0" path="res://map/main.tres" id="1_5kxhx"]
@@ -23,6 +23,34 @@ font_size = 15
 font_color = Color(1, 0, 0, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dkd3k"]
+font = ExtResource("8_plmn2")
+font_size = 30
+font_color = Color(0, 0.639216, 0.34902, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iasly"]
+font = ExtResource("8_plmn2")
+font_size = 45
+font_color = Color(1, 0, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_chkdp"]
+font = ExtResource("8_plmn2")
+font_size = 45
+font_color = Color(0, 1, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eognc"]
+font = ExtResource("8_plmn2")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+outline_size = 8
 
 [node name="main2" type="Node2D"]
 script = ExtResource("1_02j1p")
@@ -78,7 +106,7 @@ position = Vector2(582, 60)
 scale = Vector2(3, 3)
 
 [node name="shootShuriken" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.5
 one_shot = true
 
 [node name="goldKnightFace" type="Sprite2D" parent="."]
@@ -107,4 +135,51 @@ offset_bottom = 24.0
 text = "000"
 label_settings = SubResource("LabelSettings_0cd6x")
 
+[node name="timeRemaining" type="Label" parent="."]
+offset_left = 552.0
+offset_top = 118.0
+offset_right = 612.0
+offset_bottom = 205.0
+text = "61"
+label_settings = SubResource("LabelSettings_dkd3k")
+
+[node name="gameTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="player1win" type="Label" parent="."]
+visible = false
+offset_left = 399.0
+offset_top = 168.0
+offset_right = 678.0
+offset_bottom = 426.0
+text = "Player 1
+    WIN!!!"
+label_settings = SubResource("LabelSettings_iasly")
+
+[node name="player2win" type="Label" parent="."]
+visible = false
+offset_left = 400.0
+offset_top = 170.0
+offset_right = 706.0
+offset_bottom = 428.0
+text = "Player 2
+    WIN!!!"
+label_settings = SubResource("LabelSettings_chkdp")
+
+[node name="TimerBeforeHome" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="overtime" type="Label" parent="."]
+visible = false
+offset_left = 446.0
+offset_top = 116.0
+offset_right = 686.0
+offset_bottom = 203.0
+text = "OVERTIME!"
+label_settings = SubResource("LabelSettings_eognc")
+
 [connection signal="timeout" from="shootShuriken" to="." method="_on_shoot_shuriken_timeout"]
+[connection signal="timeout" from="gameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="timeout" from="TimerBeforeHome" to="." method="_on_timer_before_home_timeout"]

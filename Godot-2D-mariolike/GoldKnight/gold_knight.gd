@@ -9,7 +9,12 @@ func _physics_process(_delta):
 	moveplayer()
 	getPosition()
 	animateplayer()
+	checkIfGameHasEnded()
 	move_and_slide()
+
+func checkIfGameHasEnded():
+	if Global.minigame2winner:
+		queue_free()
 
 func getPosition():
 	Global.goldKnightPositionx = global_position.x
