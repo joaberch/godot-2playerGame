@@ -24,6 +24,7 @@ var player1isowl = true
 @export var goldknightspeed = 400
 var knightpositionx
 var knightpositiony
+var shurikencooldown = 3
 
 var goldKnightPositionx
 var goldKnightPositiony
@@ -32,6 +33,8 @@ var goldKnightPositiony
 @export var ShurikenVelocity = 200
 
 var checkIsKnight
+var knightDirection = "down"
+var goldKnightDirection = "down"
 
 ################################### Mini Game 3 Variable
 @export var redFishVelocity = 5

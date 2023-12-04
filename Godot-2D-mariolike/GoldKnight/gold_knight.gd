@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var animation = $SpriteSheet/AnimationPlayer
 
 var stringanimation = "downIdle"
-var direction
 var weapon = "fist"
 
 func _physics_process(_delta):
@@ -33,26 +32,26 @@ func moveplayer():
 func animateplayer():
 	if velocity.x > 0:
 		stringanimation = "right"
-		direction = "right"
+		Global.goldKnightDirection = "right"
 	elif velocity.x < 0:
 		stringanimation = "left"
-		direction = "left"
+		Global.goldKnightDirection = "left"
 	
 	if velocity.y > 0:
 		stringanimation = "down"
-		direction = "down"
+		Global.goldKnightDirection = "down"
 	elif velocity.y < 0:
 		stringanimation = "up"
-		direction = "up"
+		Global.goldKnightDirection = "up"
 	
 	if velocity.x == 0 && velocity.y == 0:
-		if direction == "right":
+		if Global.goldKnightDirection == "right":
 			stringanimation = "rightIdle"
-		elif direction == "left":
+		elif Global.goldKnightDirection == "left":
 			stringanimation = "leftIdle"
-		elif direction == "up":
+		elif Global.goldKnightDirection == "up":
 			stringanimation = "upIdle"
-		elif direction == "down":
+		elif Global.goldKnightDirection == "down":
 			stringanimation = "downIdle"
 		else:
 			stringanimation == "RESET"
