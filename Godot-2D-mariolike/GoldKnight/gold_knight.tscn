@@ -189,10 +189,10 @@ libraries = {
 "": SubResource("AnimationLibrary_p8dfs")
 }
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="hitboxGoldKnight" type="Area2D" parent="."]
 position = Vector2(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxGoldKnight"]
 position = Vector2(0, -0.75)
 shape = SubResource("RectangleShape2D_7f6k7")
 
@@ -200,5 +200,3 @@ shape = SubResource("RectangleShape2D_7f6k7")
 position = Vector2(0, -24)
 scale = Vector2(0.0824468, 0.0824468)
 texture = ExtResource("2_c21br")
-
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

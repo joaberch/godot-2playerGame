@@ -64,4 +64,3 @@ func animateplayer():
 func player():
 	pass
 
-

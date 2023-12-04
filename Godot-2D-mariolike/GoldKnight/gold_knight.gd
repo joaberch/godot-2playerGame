@@ -57,8 +57,3 @@ func animateplayer():
 			stringanimation == "RESET"
 	
 	animation.play(stringanimation)
-
-
-func _on_hitbox_area_entered(area):
-	if (area.name == "hitboxShuriken"):
-		print("test")

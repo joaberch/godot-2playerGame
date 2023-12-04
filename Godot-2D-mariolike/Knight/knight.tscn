@@ -256,11 +256,11 @@ libraries = {
 "": SubResource("AnimationLibrary_7u20e")
 }
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="hitboxKnight" type="Area2D" parent="."]
 position = Vector2(3.39222, 1.43745)
 scale = Vector2(2, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxKnight"]
 position = Vector2(-1.66667, -0.666667)
 shape = SubResource("RectangleShape2D_mfhfy")
 

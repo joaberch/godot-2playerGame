@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4huv2471c1x8"]
+[gd_scene load_steps=12 format=3 uid="uid://d4huv2471c1x8"]
 
 [ext_resource type="Script" path="res://map2/main_2.gd" id="1_02j1p"]
 [ext_resource type="TileSet" uid="uid://c7ahos35bsmq0" path="res://map/main.tres" id="1_5kxhx"]
@@ -6,6 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://cm4y0qscqi53m" path="res://GoldKnight/gold_knight.tscn" id="3_kh817"]
 [ext_resource type="PackedScene" uid="uid://csskfr74la48u" path="res://greenfrog/greenfrog.tscn" id="4_cqyxh"]
 [ext_resource type="PackedScene" uid="uid://cxqlff8btud34" path="res://redfrog/red_frog.tscn" id="5_hxdbb"]
+[ext_resource type="Texture2D" uid="uid://cks2yv5ojwsw6" path="res://art/NinjaAdventure/Actor/Characters/GoldKnight/Faceset.png" id="7_xo8ty"]
+[ext_resource type="FontFile" uid="uid://dhd5kcbn3k4fh" path="res://font/Pixeled.ttf" id="8_plmn2"]
+[ext_resource type="Texture2D" uid="uid://pimfx58pqaom" path="res://art/NinjaAdventure/Actor/Characters/Knight/Faceset.png" id="9_d6kld"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_idtp6"]
+font = ExtResource("8_plmn2")
+font_size = 15
+font_color = Color(1, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0cd6x"]
+font = ExtResource("8_plmn2")
+font_size = 15
+font_color = Color(1, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="main2" type="Node2D"]
 script = ExtResource("1_02j1p")
@@ -63,5 +80,31 @@ scale = Vector2(3, 3)
 [node name="shootShuriken" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="goldKnightFace" type="Sprite2D" parent="."]
+position = Vector2(45, 160)
+scale = Vector2(2, 2)
+texture = ExtResource("7_xo8ty")
+
+[node name="Label" type="Label" parent="goldKnightFace"]
+offset_left = 22.0
+offset_top = -23.5
+offset_right = 62.0
+offset_bottom = 25.5
+text = "000"
+label_settings = SubResource("LabelSettings_idtp6")
+
+[node name="knightFace" type="Sprite2D" parent="."]
+position = Vector2(1105, 160)
+scale = Vector2(2, 2)
+texture = ExtResource("9_d6kld")
+
+[node name="Label" type="Label" parent="knightFace"]
+offset_left = -66.5
+offset_top = -21.0
+offset_right = -21.5
+offset_bottom = 24.0
+text = "000"
+label_settings = SubResource("LabelSettings_0cd6x")
 
 [connection signal="timeout" from="shootShuriken" to="." method="_on_shoot_shuriken_timeout"]

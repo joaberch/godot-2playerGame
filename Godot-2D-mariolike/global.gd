@@ -26,6 +26,9 @@ var knightpositionx
 var knightpositiony
 var shurikencooldown = 3
 
+var knightDamageTaken = 0
+var goldKnightDamageTaken = 0
+
 var goldKnightPositionx
 var goldKnightPositiony
 @export var greenFrogVelocity = 200
