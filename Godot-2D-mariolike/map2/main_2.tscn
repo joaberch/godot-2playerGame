@@ -144,7 +144,7 @@ text = "61"
 label_settings = SubResource("LabelSettings_dkd3k")
 
 [node name="gameTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 
 [node name="player1win" type="Label" parent="."]
@@ -180,6 +180,10 @@ offset_bottom = 203.0
 text = "OVERTIME!"
 label_settings = SubResource("LabelSettings_eognc")
 
+[node name="lastTimerOvertime" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="shootShuriken" to="." method="_on_shoot_shuriken_timeout"]
 [connection signal="timeout" from="gameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="timeout" from="TimerBeforeHome" to="." method="_on_timer_before_home_timeout"]
+[connection signal="timeout" from="lastTimerOvertime" to="." method="_on_last_timer_overtime_timeout"]

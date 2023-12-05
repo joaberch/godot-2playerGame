@@ -7,6 +7,7 @@ extends Node2D
 @onready var timeRemaining = $timeRemaining
 @onready var timerGame = $gameTimer
 @onready var lastTimer = $TimerBeforeHome
+@onready var lastTimerOvertime = $lastTimerOvertime
 
 var checkOvertime
 
@@ -34,11 +35,13 @@ func overtimeCheckHasEnded():
 	if Global.knightDamageTaken > Global.goldKnightDamageTaken:
 		$player2win.visible = true
 		Global.minigame2winner = 2
-		lastTimer.start()
+		lastTimerOvertime.start()
+		get_tree().change_scene_to_file(Global.scenehomeMenu) #TODO : correct the error with the timer (it doesn't end/start?)
 	elif Global.knightDamageTaken < Global.goldKnightDamageTaken:
 		$player1win.visible = true
 		Global.minigame2winner = 1
-		lastTimer.start()
+		lastTimerOvertime.start()
+		get_tree().change_scene_to_file(Global.scenehomeMenu) #TODO : correct the error with the timer (it doesn't end/start?)
 
 func writeTimeRemaining():
 	if timerGame.time_left != 0:
@@ -89,4 +92,8 @@ func _on_game_timer_timeout():
 
 
 func _on_timer_before_home_timeout():
+	get_tree().change_scene_to_file(Global.scenehomeMenu)
+
+
+func _on_last_timer_overtime_timeout():
 	get_tree().change_scene_to_file(Global.scenehomeMenu)

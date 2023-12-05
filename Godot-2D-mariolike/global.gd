@@ -41,8 +41,8 @@ var knightDirection = "down"
 var goldKnightDirection = "down"
 
 ################################### Mini Game 3 Variable
-@export var redFishVelocity = 5
-@export var pinkFishVelocity = 5
+@export var redFishVelocity = 50
+@export var pinkFishVelocity = 50
 
 #################################### Game variable ##############################
 
