@@ -20,5 +20,6 @@ func _on_timer_before_camera_move_timeout():
 
 
 func _on_timer_camera_speed_2_timeout():
-	cameraSpeed += 0.1
+	cameraSpeed += 0.01
+	
 	
