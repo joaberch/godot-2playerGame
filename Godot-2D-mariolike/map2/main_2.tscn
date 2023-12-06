@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d4huv2471c1x8"]
+[gd_scene load_steps=20 format=3 uid="uid://d4huv2471c1x8"]
 
 [ext_resource type="Script" path="res://map2/main_2.gd" id="1_02j1p"]
 [ext_resource type="TileSet" uid="uid://c7ahos35bsmq0" path="res://map/main.tres" id="1_5kxhx"]
@@ -51,6 +51,20 @@ font = ExtResource("8_plmn2")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 outline_size = 8
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gawph"]
+b = Vector2(0, 653)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nx1qr"]
+b = Vector2(1153, -1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_643ty"]
+a = Vector2(1151, -1)
+b = Vector2(1153, 650)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j6d5w"]
+a = Vector2(1153, 646)
+b = Vector2(2, 649)
 
 [node name="main2" type="Node2D"]
 script = ExtResource("1_02j1p")
@@ -144,7 +158,7 @@ text = "61"
 label_settings = SubResource("LabelSettings_dkd3k")
 
 [node name="gameTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 60.0
 one_shot = true
 
 [node name="player1win" type="Label" parent="."]
@@ -182,6 +196,20 @@ label_settings = SubResource("LabelSettings_eognc")
 
 [node name="lastTimerOvertime" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="border" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border"]
+shape = SubResource("SegmentShape2D_gawph")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="border"]
+shape = SubResource("SegmentShape2D_nx1qr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="border"]
+shape = SubResource("SegmentShape2D_643ty")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="border"]
+shape = SubResource("SegmentShape2D_j6d5w")
 
 [connection signal="timeout" from="shootShuriken" to="." method="_on_shoot_shuriken_timeout"]
 [connection signal="timeout" from="gameTimer" to="." method="_on_game_timer_timeout"]
