@@ -20,3 +20,9 @@ func CheckInput():
 	#Moving bottomward
 	if Input.is_action_just_pressed("down-S"):
 		velocity.y += Global.pinkFishVelocity
+
+
+func _on_pink_fish_hitbox_area_entered(area):
+	if area.name == "leftLimit":
+		queue_free()
+		Global.minigame3winner = 1

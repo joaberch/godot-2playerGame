@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2ovmyxhdpqgx"]
+[gd_scene load_steps=14 format=3 uid="uid://c2ovmyxhdpqgx"]
 
 [ext_resource type="Script" path="res://map3/main_3.gd" id="1_b7x3s"]
 [ext_resource type="Texture2D" uid="uid://ct4a4fhj8kd8v" path="res://art/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png" id="1_xxqxq"]
 [ext_resource type="Texture2D" uid="uid://b6pix18tyjodf" path="res://art/NinjaAdventure/Backgrounds/Tilesets/TilesetWater.png" id="2_7bxoi"]
 [ext_resource type="PackedScene" uid="uid://dbi5k3q6pdqt6" path="res://redFish/red_fish.tscn" id="2_egcnr"]
 [ext_resource type="PackedScene" uid="uid://cpgkvoccyuiur" path="res://pinkFish/pink_fish.tscn" id="3_b23vl"]
+[ext_resource type="FontFile" uid="uid://dhd5kcbn3k4fh" path="res://font/Pixeled.ttf" id="6_1qcew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqmil"]
 texture = ExtResource("1_xxqxq")
@@ -1956,6 +1957,24 @@ sources/1 = SubResource("TileSetAtlasSource_haok8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qarq"]
 size = Vector2(5, 649)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtvfm"]
+size = Vector2(20, 674)
+
+[sub_resource type="LabelSettings" id="LabelSettings_584xw"]
+font = ExtResource("6_1qcew")
+font_size = 45
+font_color = Color(1, 0, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_am63y"]
+font = ExtResource("6_1qcew")
+font_size = 45
+font_color = Color(0, 1, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
 [node name="main_3" type="Node2D"]
 script = ExtResource("1_b7x3s")
 
@@ -1988,12 +2007,39 @@ position = Vector2(1309, 0)
 position = Vector2(-7.5, 314.5)
 shape = SubResource("RectangleShape2D_0qarq")
 
+[node name="leftLimit" type="Area2D" parent="."]
+position = Vector2(-66, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftLimit"]
+position = Vector2(0, 327)
+shape = SubResource("RectangleShape2D_jtvfm")
+
 [node name="TimerBeforeCameraMove" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 autostart = true
 
 [node name="TimerCameraSpeed2" type="Timer" parent="."]
+
+[node name="player1win" type="Label" parent="."]
+visible = false
+offset_left = 399.0
+offset_top = 168.0
+offset_right = 678.0
+offset_bottom = 426.0
+text = "Player 1
+    WIN!!!"
+label_settings = SubResource("LabelSettings_584xw")
+
+[node name="player2win" type="Label" parent="."]
+visible = false
+offset_left = 400.0
+offset_top = 170.0
+offset_right = 706.0
+offset_bottom = 428.0
+text = "Player 2
+    WIN!!!"
+label_settings = SubResource("LabelSettings_am63y")
 
 [connection signal="timeout" from="TimerBeforeCameraMove" to="." method="_on_timer_before_camera_move_timeout"]
 [connection signal="timeout" from="TimerCameraSpeed2" to="." method="_on_timer_camera_speed_2_timeout"]
