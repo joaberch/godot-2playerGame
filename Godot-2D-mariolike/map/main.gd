@@ -9,13 +9,11 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.wait_time = Global.timer
 	timer.start()  # Le timer déclenchera le signal "timeout" toutes les secondes
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	Global.timeremaining = timer.time_left
-	label.text = str(Global.timeremaining)
+	label.text = str(round(timer.time_left))
 
 func _on_timer_timeout(): #At the end of the 
 	Global.endgame = true

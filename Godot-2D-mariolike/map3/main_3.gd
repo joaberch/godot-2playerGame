@@ -56,6 +56,6 @@ func _on_timer_camera_speed_2_timeout():
 		phaseSpeed = 1
 	elif cameraSpeed < 2.01:
 		phaseSpeed = 2
-	elif cameraSpeed < 15:
+	elif cameraSpeed < 7:
 		phaseSpeed = 3
 	print(cameraSpeed)
