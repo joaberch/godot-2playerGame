@@ -35,6 +35,7 @@ func attackowl():
 		animations.play("Right")
 	else:
 		velocity.x = 0
+		
 	
 	if Global.playerpositiony > global_position.y:
 		velocity.y = Global.catspeed/checkSlow
@@ -42,7 +43,6 @@ func attackowl():
 		velocity.y = -Global.catspeed/checkSlow
 	else:
 		velocity.y = 0
-
 
 func _on_footdetection_area_entered(area):
 	if area.name == "slow":
