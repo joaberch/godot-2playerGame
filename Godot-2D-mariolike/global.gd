@@ -44,6 +44,9 @@ var goldKnightDirection = "down"
 @export var redFishVelocity = 50
 @export var pinkFishVelocity = 50
 
+var checkDeadPlayer1
+var checkDeadPlayer2
+
 #################################### Game variable ##############################
 
 var minigame1winner
