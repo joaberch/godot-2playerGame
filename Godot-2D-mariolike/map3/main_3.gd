@@ -17,10 +17,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	camera.offset.x += cameraSpeed
-	rightBorder.position.x += cameraSpeed
-	leftBorder.position.x += cameraSpeed
-	
+	#Making the left and right border move
+	moveBorder()
+	#Making the camera move
+	moveCamera()
+	#Check the winner
+	checkWinner()
+
+func checkWinner():
 	if Global.minigame3winner == 1:
 		player1win.position.x = camera.offset.x + 450
 		player1win.visible = true
@@ -31,10 +35,17 @@ func _process(delta):
 	if Global.checkDeadPlayer1 == true && Global.checkDeadPlayer2 == true:
 		get_tree().change_scene_to_file(Global.scenehomeMenu)
 
+func moveCamera():
+	camera.offset.x += cameraSpeed
+
+func moveBorder():
+	rightBorder.position.x += cameraSpeed
+	leftBorder.position.x += cameraSpeed
+
 func _on_timer_before_camera_move_timeout():
 	timerCameraspeed2.start()
 
 
 func _on_timer_camera_speed_2_timeout():
 	cameraSpeed += 0.1
-	
+
