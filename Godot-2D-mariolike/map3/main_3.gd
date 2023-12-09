@@ -47,15 +47,14 @@ func _on_timer_camera_speed_2_timeout():
 	match phaseSpeed:
 		1:
 			cameraSpeed += 0.5
-		2: 
-			cameraSpeed += 0.01
-		3:
+		2:
 			cameraSpeed += 1
 	
-	if cameraSpeed < 1.9:
+	if cameraSpeed < 2.1:
 		phaseSpeed = 1
-	elif cameraSpeed < 2.01:
-		phaseSpeed = 2
 	elif cameraSpeed < 7:
-		phaseSpeed = 3
+		phaseSpeed = 2
+	
+	if cameraSpeed == 7.5:
+		camera.zoom = Vector2(0.5, 0.5)
 	print(cameraSpeed)
