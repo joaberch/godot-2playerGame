@@ -9,16 +9,27 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Check if someone has won 2 minigame
 	checkWinner()
-	
-	if Global.minigame1winner:
-		buttonGame1.disabled = true
-	if Global.minigame2winner:
-		buttonGame2.disabled = true
-	if Global.minigame3winner:
-		buttonGame3.disabled = true
-	
+	#Disable the button
+	disableButton()
 	#Display the winner of the minigame played
+	showWinner()
+	#Animate characters
+	animateCharacter()
+
+func animateCharacter():
+	#Starting the animation
+	$TileMap/Minigame1/owlSprite/AnimationPlayer.play("right")
+	$TileMap/Minigame1/lionSprite/AnimationPlayer.play("left")
+	$TileMap/Minigame1/catSprite/AnimationPlayer.play("left")
+	
+	$TileMap/Minigame2/Frog1/AnimationPlayer.play("right")
+	$TileMap/Minigame2/Frog2/AnimationPlayer.play("left")
+	$TileMap/Minigame2/knight2/AnimationPlayer.play("left")
+	$TileMap/Minigame2/knight1/AnimationPlayer.play("right")
+
+func showWinner():
 	#Minigame 1
 	if Global.minigame1winner == 1:
 		$TileMap/Minigame1/Minigame1Winner/Game1Player1win.visible = true
@@ -34,16 +45,14 @@ func _ready():
 		$TileMap/Minigame3/Minigame3Winner/Game3Player1win.visible = true
 	if Global.minigame3winner == 2:
 		$TileMap/Minigame3/Minigame3Winner/Game3Player2win.visible = true
-	
-	#Starting the animation
-	$TileMap/Minigame1/owlSprite/AnimationPlayer.play("right")
-	$TileMap/Minigame1/lionSprite/AnimationPlayer.play("left")
-	$TileMap/Minigame1/catSprite/AnimationPlayer.play("left")
-	
-	$TileMap/Minigame2/Frog1/AnimationPlayer.play("right")
-	$TileMap/Minigame2/Frog2/AnimationPlayer.play("left")
-	$TileMap/Minigame2/knight2/AnimationPlayer.play("left")
-	$TileMap/Minigame2/knight1/AnimationPlayer.play("right")
+
+func disableButton():
+	if Global.minigame1winner:
+		buttonGame1.disabled = true
+	if Global.minigame2winner:
+		buttonGame2.disabled = true
+	if Global.minigame3winner:
+		buttonGame3.disabled = true
 
 func checkWinner():
 	if (Global.minigame1winner == 1 && Global.minigame2winner == 1) || (Global.minigame1winner == 1 && Global.minigame3winner == 1) || (Global.minigame2winner == 1 && Global.minigame3winner == 1):
