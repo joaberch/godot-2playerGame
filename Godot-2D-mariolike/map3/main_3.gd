@@ -6,14 +6,10 @@ extends Node2D
 @onready var leftBorder = $leftLimit
 @onready var player1win = $player1win
 @onready var player2win = $player2win
-var cameraSpeed = 1
+var cameraSpeed = 0
 var CheckDeadPlayer1
 var CheckDeadPlayer2
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+var phaseSpeed = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,8 +40,22 @@ func moveBorder():
 
 func _on_timer_before_camera_move_timeout():
 	timerCameraspeed2.start()
+	cameraSpeed = 0.5
 
 
 func _on_timer_camera_speed_2_timeout():
-	cameraSpeed += 0.1
-
+	match phaseSpeed:
+		1:
+			cameraSpeed += 0.5
+		2: 
+			cameraSpeed += 0.01
+		3:
+			cameraSpeed += 1
+	
+	if cameraSpeed < 1.9:
+		phaseSpeed = 1
+	elif cameraSpeed < 2.01:
+		phaseSpeed = 2
+	elif cameraSpeed < 15:
+		phaseSpeed = 3
+	print(cameraSpeed)
