@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://1jdaf0caj24e"]
+[gd_scene load_steps=42 format=3 uid="uid://1jdaf0caj24e"]
 
 [ext_resource type="Script" path="res://homeMenu/home_menu.gd" id="1_ek3j0"]
 [ext_resource type="TileSet" uid="uid://c7ahos35bsmq0" path="res://map/main.tres" id="1_m512p"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://8eyfckq7avf4" path="res://art/NinjaAdventure/Actor/Characters/Knight/SpriteSheet.png" id="11_v02k5"]
 [ext_resource type="Texture2D" uid="uid://c1lgb2gcu37na" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Faceset.png" id="12_5jvv3"]
 [ext_resource type="Texture2D" uid="uid://ocv3wrf64dwg" path="res://art/NinjaAdventure/Actor/Animals/Fish/FacesetRed.png" id="13_jddrc"]
+[ext_resource type="AudioStream" uid="uid://dymhlfwm5s3it" path="res://art/NinjaAdventure/Sounds/Game/Success3.wav" id="14_fffeg"]
 
 [sub_resource type="Animation" id="Animation_lfoa8"]
 length = 0.001
@@ -322,6 +323,20 @@ _data = {
 "right": SubResource("Animation_o6co3")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_kuxhk"]
+font = ExtResource("6_bioi8")
+font_size = 60
+font_color = Color(0, 1, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7mii2"]
+font = ExtResource("6_bioi8")
+font_size = 60
+font_color = Color(1, 0, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
 [node name="HomeMenu" type="Node2D"]
 position = Vector2(10, 50)
 script = ExtResource("1_ek3j0")
@@ -546,6 +561,27 @@ offset_right = 634.0
 offset_bottom = 476.0
 text = "Start the game"
 icon = ExtResource("13_jddrc")
+
+[node name="Player2Won" type="Label" parent="."]
+visible = false
+offset_left = 277.0
+offset_top = 153.0
+offset_right = 937.0
+offset_bottom = 324.0
+text = "Player 2 win!!!"
+label_settings = SubResource("LabelSettings_kuxhk")
+
+[node name="Player1Won" type="Label" parent="."]
+visible = false
+offset_left = 280.0
+offset_top = 154.0
+offset_right = 904.0
+offset_bottom = 325.0
+text = "Player 1 win!!!"
+label_settings = SubResource("LabelSettings_7mii2")
+
+[node name="WinAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_fffeg")
 
 [connection signal="pressed" from="TileMap/Minigame1/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="TileMap/Minigame2/Button2" to="." method="_on_button_2_pressed"]
