@@ -2677,17 +2677,17 @@ position = Vector2(70, 580)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 
-[node name="rightBorder" type="StaticBody2D" parent="."]
-position = Vector2(1309, 0)
+[node name="rightBorder" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(733, -324)
 
-[node name="collisionShape2D" type="CollisionShape2D" parent="rightBorder"]
+[node name="collisionShape2D" type="CollisionShape2D" parent="Camera2D/rightBorder"]
 position = Vector2(-7.5, 314.5)
 shape = SubResource("RectangleShape2D_0qarq")
 
-[node name="leftLimit" type="Area2D" parent="."]
-position = Vector2(-66, -2)
+[node name="leftLimit" type="Area2D" parent="Camera2D"]
+position = Vector2(-642, -326)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="leftLimit"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/leftLimit"]
 position = Vector2(0, 327)
 shape = SubResource("RectangleShape2D_jtvfm")
 

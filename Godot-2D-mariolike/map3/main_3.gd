@@ -2,8 +2,8 @@ extends Node2D
 
 @onready var camera = $Camera2D
 @onready var timerCameraspeed2 = $TimerCameraSpeed2
-@onready var rightBorder = $rightBorder
-@onready var leftBorder = $leftLimit
+@onready var rightBorder = $Camera2D/rightBorder
+@onready var leftBorder = $Camera2D/leftLimit
 @onready var player1win = $player1win
 @onready var player2win = $player2win
 var cameraSpeed = 0
