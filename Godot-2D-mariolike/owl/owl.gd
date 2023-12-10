@@ -80,8 +80,6 @@ func _on_hurtbox_area_entered(area):
 		else:
 			Global.player1isowl = true
 		
-		Global.timeremaining = 61
-		
 		GameOver.play()
 
 func changephase():
