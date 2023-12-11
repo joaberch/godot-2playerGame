@@ -11,6 +11,7 @@ var CheckDeadPlayer1
 var CheckDeadPlayer2
 var phaseSpeed = 1
 var checkUnzoom
+var checkZoomAgain
 var cameraZoom = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,6 +25,15 @@ func _process(delta):
 	#check if we shoukd unfocus
 	if checkUnzoom:
 		unZoom()
+	if checkZoomAgain:
+		zoomAgain()
+
+func zoomAgain():
+	camera.zoom = Vector2(cameraZoom, cameraZoom)
+	cameraZoom += 0.0005
+	
+	if camera.zoom >= Vector2(3, 3):
+		checkZoomAgain = false
 
 func unZoom():
 	camera.zoom = Vector2(cameraZoom, cameraZoom)
@@ -76,3 +86,7 @@ func _on_timer_camera_speed_2_timeout():
 func _on_camera_un_zoom_area_entered(area):
 	checkUnzoom = true
 	cameraSpeed = 3.1
+
+
+func _on_camera_zoom_area_entered(area):
+	checkZoomAgain = true
