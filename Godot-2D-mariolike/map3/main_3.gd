@@ -54,7 +54,9 @@ func _on_timer_camera_speed_2_timeout():
 		phaseSpeed = 1
 	elif cameraSpeed < 7:
 		phaseSpeed = 2
-	
-	if cameraSpeed == 7.5:
-		camera.zoom = Vector2(0.5, 0.5)
 	print(cameraSpeed)
+
+
+func _on_camera_un_zoom_area_entered(area):
+	camera.zoom = Vector2(0.5, 0.5)
+	cameraSpeed -=5.1
