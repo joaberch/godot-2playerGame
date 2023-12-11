@@ -6,7 +6,7 @@ extends Node2D
 @onready var leftBorder = $Camera2D/leftLimit
 @onready var player1win = $player1win
 @onready var player2win = $player2win
-var cameraSpeed = 360
+var cameraSpeed = 0
 var CheckDeadPlayer1
 var CheckDeadPlayer2
 var phaseSpeed = 1
