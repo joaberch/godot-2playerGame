@@ -47,8 +47,12 @@ func moveCamera():
 	camera.offset.x += cameraSpeed
 
 func moveBorder():
-	rightBorder.position.x += cameraSpeed
-	leftBorder.position.x += cameraSpeed
+	if checkUnzoom:
+		rightBorder.position.x += cameraSpeed*3
+		leftBorder.position.x += cameraSpeed/1.6
+	else:
+		rightBorder.position.x += cameraSpeed
+		leftBorder.position.x += cameraSpeed
 
 func _on_timer_before_camera_move_timeout():
 	timerCameraspeed2.start()
