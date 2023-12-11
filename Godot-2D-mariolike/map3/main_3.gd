@@ -6,7 +6,7 @@ extends Node2D
 @onready var leftBorder = $Camera2D/leftLimit
 @onready var player1win = $player1win
 @onready var player2win = $player2win
-var cameraSpeed = 370
+var cameraSpeed = 360
 var CheckDeadPlayer1
 var CheckDeadPlayer2
 var phaseSpeed = 1
@@ -30,7 +30,7 @@ func _process(delta):
 
 func zoomAgain():
 	camera.zoom = Vector2(cameraZoom, cameraZoom)
-	cameraZoom += 0.0005
+	cameraZoom += 0.001
 	
 	if camera.zoom >= Vector2(3, 3):
 		checkZoomAgain = false
