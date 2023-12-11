@@ -6,10 +6,12 @@ extends Node2D
 @onready var leftBorder = $Camera2D/leftLimit
 @onready var player1win = $player1win
 @onready var player2win = $player2win
-var cameraSpeed = 0
+var cameraSpeed = 370
 var CheckDeadPlayer1
 var CheckDeadPlayer2
 var phaseSpeed = 1
+var checkUnzoom
+var cameraZoom = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,6 +21,16 @@ func _process(delta):
 	moveCamera()
 	#Check the winner
 	checkWinner()
+	#check if we shoukd unfocus
+	if checkUnzoom:
+		unZoom()
+
+func unZoom():
+	camera.zoom = Vector2(cameraZoom, cameraZoom)
+	cameraZoom -= 0.0005
+	
+	if camera.zoom <= Vector2(0.2, 0.2):
+		checkUnzoom = false
 
 func checkWinner():
 	if Global.minigame3winner == 1:
@@ -58,5 +70,5 @@ func _on_timer_camera_speed_2_timeout():
 
 
 func _on_camera_un_zoom_area_entered(area):
-	camera.zoom = Vector2(0.5, 0.5)
-	cameraSpeed -=5.1
+	checkUnzoom = true
+	cameraSpeed = 3.1
