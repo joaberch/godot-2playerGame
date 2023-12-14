@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1a2ltfrnyu0p"]
+
+[ext_resource type="Script" path="res://fireBall/fire_ball.gd" id="1_bd2my"]
+[ext_resource type="Texture2D" uid="uid://bl2fmpd2ona4x" path="res://art/NinjaAdventure/FX/Elemental/Flam/SpriteSheet.png" id="2_ctvei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btxxv"]
+atlas = ExtResource("2_ctvei")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxr0q"]
+atlas = ExtResource("2_ctvei")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnjea"]
+atlas = ExtResource("2_ctvei")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oavua"]
+atlas = ExtResource("2_ctvei")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx2iw"]
+atlas = ExtResource("2_ctvei")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qxmh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btxxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxr0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnjea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oavua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx2iw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdn8n"]
+size = Vector2(22, 26)
+
+[node name="fireBall" type="RigidBody2D"]
+rotation = 3.14159
+script = ExtResource("1_bd2my")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_3qxmh")
+frame_progress = 0.646542
+
+[node name="flamHitbox" type="Area2D" parent="."]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flamHitbox"]
+position = Vector2(-1, -3)
+shape = SubResource("RectangleShape2D_kdn8n")
+
+[connection signal="area_entered" from="flamHitbox" to="." method="_on_flam_hitbox_area_entered"]

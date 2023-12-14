@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var flameScene = preload("res://fireBall/fire_ball.tscn")
+@onready var plantBullet = preload("res://plantBall/acid_ball.tscn")
 @onready var shurikenscene = preload("res://shuriken/shuriken.tscn")
 @onready var shurikenTimer = $shootShuriken
 @onready var goldKnightDamageTaken = $goldKnightFace/Label
@@ -97,3 +99,10 @@ func _on_timer_before_home_timeout():
 
 func _on_last_timer_overtime_timeout():
 	get_tree().change_scene_to_file(Global.scenehomeMenu)
+
+
+func _on_frog_attack_timeout():
+	var newFireBall = flameScene.instantiate()
+	add_child(newFireBall)
+	var newPlantBullet = plantBullet.instantiate()
+	add_child(newPlantBullet)

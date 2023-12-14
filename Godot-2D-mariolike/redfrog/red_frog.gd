@@ -4,10 +4,14 @@ extends CharacterBody2D
 var animationString
 
 func _physics_process(_delta):
+	getPosition()
 	moveToAttackGoldKnight()
 	animate()
 	checkIfGameHasEnded()
 	move_and_slide()
+
+func getPosition():
+	Global.redFrogPosition = position
 
 func checkIfGameHasEnded():
 	if Global.minigame2winner:
@@ -20,7 +24,6 @@ func moveToAttackGoldKnight():
 		velocity.x = -Global.redFrogVelocity
 	else:
 		velocity.x = 0
-		attack()
 
 func animate():
 	if velocity.x > 0:
@@ -32,6 +35,3 @@ func animate():
 	else:
 		animationString = "attack"
 	animation.play(animationString)
-
-func attack():
-	pass

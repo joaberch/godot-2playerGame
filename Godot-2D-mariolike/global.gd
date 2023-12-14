@@ -33,10 +33,15 @@ var goldKnightPositiony
 @export var greenFrogVelocity = 200
 @export var redFrogVelocity = 200
 @export var ShurikenVelocity = 200
+@export var flameVelocity = 10
+@export var plantBulletVelocity = 10
 
 var checkIsKnight
 var knightDirection = "down"
 var goldKnightDirection = "down"
+
+var greenFrogPosition
+var redFrogPosition
 
 ################################### Mini Game 3 Variable
 @export var redFishVelocity = 50

@@ -136,7 +136,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kjiuw")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -209,10 +209,3 @@ script = ExtResource("1_2jywf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kfe0a")
 animation = &"attack"
-frame_progress = 0.81096
-
-[node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-
-[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
