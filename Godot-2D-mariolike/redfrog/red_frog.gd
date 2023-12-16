@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animation = $AnimatedSprite2D
 var animationString
+var checkIsHurt
 
 func _physics_process(_delta):
 	getPosition()
@@ -18,7 +19,7 @@ func checkIfGameHasEnded():
 		queue_free()
 
 func moveToAttackGoldKnight():
-	if !Global.checkFrogAreAttacking:
+	if !Global.checkFrogAreAttacking || !checkIsHurt:
 		if position.x < Global.goldKnightPositionx-10:
 			velocity.x = Global.redFrogVelocity
 		elif position.x > Global.goldKnightPositionx+10:
@@ -30,14 +31,26 @@ func moveToAttackGoldKnight():
 
 func animate():
 	if !Global.checkFrogAreAttacking:
-		if velocity.x > 0:
-			animationString = "jump"
-			animation.flip_h = true
-		elif velocity.x < 0:
-			animationString = "jump"
-			animation.flip_h = false
+		if !checkIsHurt:
+			if velocity.x > 0:
+				animationString = "jump"
+				animation.flip_h = true
+			elif velocity.x < 0:
+				animationString = "jump"
+				animation.flip_h = false
+			else:
+				animationString = "idle"
 		else:
-			animationString = "idle"
+			animationString = "hit"
 	else:
 		animationString = "attack"
 	animation.play(animationString)
+
+func _on_frog_hitbox_area_entered(area):
+	if area.name == "hitboxShuriken":
+		checkIsHurt = true
+		print("red frog hit")
+
+func _on_animated_sprite_2d_animation_looped():
+	if checkIsHurt:
+		checkIsHurt = false

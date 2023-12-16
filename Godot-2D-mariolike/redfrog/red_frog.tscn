@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cxqlff8btud34"]
+[gd_scene load_steps=33 format=3 uid="uid://cxqlff8btud34"]
 
 [ext_resource type="Script" path="res://redfrog/red_frog.gd" id="1_idh5r"]
 [ext_resource type="Texture2D" uid="uid://dm23rpmjqjarg" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Charge.png" id="1_va25d"]
@@ -146,18 +146,18 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_7xg1i")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_bai0m")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_rg7b2")
 }],
 "loop": true,
 "name": &"hit",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -177,7 +177,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -203,9 +203,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oc6e"]
+size = Vector2(32, 26)
+
 [node name="redFrog" type="CharacterBody2D"]
 script = ExtResource("1_idh5r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oj42c")
 animation = &"hit"
+
+[node name="frogHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="frogHitbox"]
+shape = SubResource("RectangleShape2D_3oc6e")
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
+[connection signal="area_entered" from="frogHitbox" to="." method="_on_frog_hitbox_area_entered"]

@@ -79,8 +79,9 @@ func moveShuriken():
 			position.y +=  (delt*100)
 
 func _on_hitbox_shuriken_area_entered(area):
-	if area.name == "hitboxShuriken" || area.name == "flamHitbox" || area.name == "plantHitbox":
+	if area.name == "hitboxShuriken" || area.name == "flamHitbox" || area.name == "plantHitbox" || area.name == "frogHitbox":
 		queue_free()
+	
 	if checkIsShootByKnight:
 		if area.name == "hitboxGoldKnight":
 			Global.goldKnightDamageTaken += 1
