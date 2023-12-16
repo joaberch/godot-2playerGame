@@ -212,11 +212,17 @@ shape = SubResource("SegmentShape2D_643ty")
 shape = SubResource("SegmentShape2D_j6d5w")
 
 [node name="frogAttack" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
+one_shot = true
 autostart = true
+
+[node name="frogAnimationTime" type="Timer" parent="."]
+wait_time = 1.7
+one_shot = true
 
 [connection signal="timeout" from="shootShuriken" to="." method="_on_shoot_shuriken_timeout"]
 [connection signal="timeout" from="gameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="timeout" from="TimerBeforeHome" to="." method="_on_timer_before_home_timeout"]
 [connection signal="timeout" from="lastTimerOvertime" to="." method="_on_last_timer_overtime_timeout"]
 [connection signal="timeout" from="frogAttack" to="." method="_on_frog_attack_timeout"]
+[connection signal="timeout" from="frogAnimationTime" to="." method="_on_frog_animation_time_timeout"]

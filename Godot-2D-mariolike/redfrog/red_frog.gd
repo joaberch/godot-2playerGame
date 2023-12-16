@@ -18,20 +18,26 @@ func checkIfGameHasEnded():
 		queue_free()
 
 func moveToAttackGoldKnight():
-	if position.x < Global.goldKnightPositionx-10:
-		velocity.x = Global.redFrogVelocity
-	elif position.x > Global.goldKnightPositionx+10:
-		velocity.x = -Global.redFrogVelocity
+	if !Global.checkFrogAreAttacking:
+		if position.x < Global.goldKnightPositionx-10:
+			velocity.x = Global.redFrogVelocity
+		elif position.x > Global.goldKnightPositionx+10:
+			velocity.x = -Global.redFrogVelocity
+		else:
+			velocity.x = 0
 	else:
 		velocity.x = 0
 
 func animate():
-	if velocity.x > 0:
-		animationString = "jump"
-		animation.flip_h = true
-	elif velocity.x < 0:
-		animationString = "jump"
-		animation.flip_h = false
+	if !Global.checkFrogAreAttacking:
+		if velocity.x > 0:
+			animationString = "jump"
+			animation.flip_h = true
+		elif velocity.x < 0:
+			animationString = "jump"
+			animation.flip_h = false
+		else:
+			animationString = "idle"
 	else:
 		animationString = "attack"
 	animation.play(animationString)

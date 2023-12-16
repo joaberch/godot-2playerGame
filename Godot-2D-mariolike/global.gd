@@ -40,6 +40,8 @@ var checkIsKnight
 var knightDirection = "down"
 var goldKnightDirection = "down"
 
+var checkFrogAreAttacking
+
 var greenFrogPosition
 var redFrogPosition
 

@@ -10,6 +10,7 @@ extends Node2D
 @onready var timerGame = $gameTimer
 @onready var lastTimer = $TimerBeforeHome
 @onready var lastTimerOvertime = $lastTimerOvertime
+@onready var frogAnimationTimer = $frogAnimationTime
 
 var checkOvertime
 
@@ -102,7 +103,14 @@ func _on_last_timer_overtime_timeout():
 
 
 func _on_frog_attack_timeout():
+	frogAnimationTimer.start()
+	Global.checkFrogAreAttacking = true
+
+
+func _on_frog_animation_time_timeout():
 	var newFireBall = flameScene.instantiate()
 	add_child(newFireBall)
 	var newPlantBullet = plantBullet.instantiate()
 	add_child(newPlantBullet)
+	Global.checkFrogAreAttacking = false
+	$frogAttack.start()
