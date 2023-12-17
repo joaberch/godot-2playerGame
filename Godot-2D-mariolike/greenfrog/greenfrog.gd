@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animation = $AnimatedSprite2D
 var animationString
 var checkIsHurt
+var lifePoint = Global.greenFrogLifePoint
 
 func _physics_process(_delta):
 	getPosition()
@@ -10,6 +11,12 @@ func _physics_process(_delta):
 	animate()
 	checkIfGameHasEnded()
 	move_and_slide()
+	if lifePoint < 1:
+		killFrog()
+
+func killFrog():
+	queue_free()
+	Global.checkGreenFrogIsAlive = false
 
 func getPosition():
 	Global.greenFrogPosition = position
@@ -51,6 +58,7 @@ func animate():
 
 func _on_frog_hitbox_area_entered(area):
 	if area.name == "hitboxShuriken":
+		lifePoint -= 1
 		checkIsHurt = true
 		if animationString == "attack":
 			Global.checkGreenFrogCanAttack = false

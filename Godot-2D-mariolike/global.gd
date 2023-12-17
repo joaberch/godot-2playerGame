@@ -35,7 +35,11 @@ var goldKnightPositiony
 @export var ShurikenVelocity = 200
 @export var flameVelocity = 10
 @export var plantBulletVelocity = 10
+@export var redFrogLifePoint = 50
+@export var greenFrogLifePoint = 50
 
+var checkGreenFrogIsAlive = true
+var checkRedFrogIsAlive = true
 var checkGreenFrogCanAttack = true
 var checkRedFrogCanAttack = true
 
