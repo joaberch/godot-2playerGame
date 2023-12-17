@@ -47,7 +47,7 @@ func overtimeCheckHasEnded():
 		get_tree().change_scene_to_file(Global.scenehomeMenu) #TODO : correct the error with the timer (it doesn't end/start?)
 
 func writeTimeRemaining():
-	if timerGame.time_left != 0:
+	if !Global.minigame2winner:
 		timeRemaining.text = str(round(timerGame.time_left))
 
 func _on_shoot_shuriken_timeout():
@@ -82,6 +82,7 @@ func changeShurikenCooldown():
 
 
 func _on_game_timer_timeout():
+	timeRemaining.queue_free()
 	if Global.knightDamageTaken > Global.goldKnightDamageTaken:
 		$player2win.visible = true
 		Global.minigame2winner = 2
@@ -108,14 +109,15 @@ func _on_frog_attack_timeout():
 
 
 func _on_frog_animation_time_timeout():
-	if Global.checkRedFrogCanAttack:
-		var newFireBall = flameScene.instantiate()
-		add_child(newFireBall)
-	if Global.checkGreenFrogCanAttack:
-		var newPlantBullet = plantBullet.instantiate()
-		add_child(newPlantBullet)
-	Global.checkFrogAreAttacking = false
-	
-	Global.checkRedFrogCanAttack = true
-	Global.checkGreenFrogCanAttack = true
-	$frogAttack.start()
+	if !Global.minigame2winner:
+		if Global.checkRedFrogCanAttack:
+			var newFireBall = flameScene.instantiate()
+			add_child(newFireBall)
+		if Global.checkGreenFrogCanAttack:
+			var newPlantBullet = plantBullet.instantiate()
+			add_child(newPlantBullet)
+		Global.checkFrogAreAttacking = false
+		
+		Global.checkRedFrogCanAttack = true
+		Global.checkGreenFrogCanAttack = true
+		$frogAttack.start()
