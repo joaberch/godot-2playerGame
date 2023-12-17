@@ -30,8 +30,8 @@ func moveToAttackKnight():
 		velocity.x = 0
 
 func animate():
-	if !Global.checkFrogAreAttacking:
-		if !checkIsHurt:
+	if !checkIsHurt:
+		if !Global.checkFrogAreAttacking:
 			if velocity.x > 0:
 				animationString = "jump"
 				animation.flip_h = true
@@ -41,14 +41,19 @@ func animate():
 			else:
 				animationString = "idle"
 		else:
-			animationString = "hit"
+			if Global.checkGreenFrogCanAttack:
+				animationString = "attack"
+			else:
+				animationString = "idle"
 	else:
-		animationString = "attack"
+		animationString = "hit"
 	animation.play(animationString)
 
 func _on_frog_hitbox_area_entered(area):
 	if area.name == "hitboxShuriken":
 		checkIsHurt = true
+		if animationString == "attack":
+			Global.checkGreenFrogCanAttack = false
 
 func _on_animated_sprite_2d_animation_finished():
 	if checkIsHurt:

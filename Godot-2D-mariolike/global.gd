@@ -36,6 +36,9 @@ var goldKnightPositiony
 @export var flameVelocity = 10
 @export var plantBulletVelocity = 10
 
+var checkGreenFrogCanAttack = true
+var checkRedFrogCanAttack = true
+
 var checkIsKnight
 var knightDirection = "down"
 var goldKnightDirection = "down"
