@@ -1,5 +1,6 @@
 extends Node2D
 
+#TODO : frog can't move when attack | restart button
 @onready var buttonGame1 = $TileMap/Minigame1/Button1
 @onready var buttonGame2 = $TileMap/Minigame2/Button2
 @onready var buttonGame3 = $TileMap/Minigame3/Button3
@@ -60,8 +61,8 @@ func checkWinner():
 		miniGame1.queue_free()
 		miniGame2.queue_free()
 		miniGame3.queue_free()
-		$TileMap.clear_layer(1)
 		$TileMap.clear_layer(2)
+		$TileMap.clear_layer(3)
 		$Player1Won.visible = true
 		$WinAudio.play()
 	if (Global.minigame1winner == 2 && Global.minigame2winner == 2) || (Global.minigame1winner == 2 && Global.minigame3winner == 2) || (Global.minigame2winner == 2 && Global.minigame3winner == 2):

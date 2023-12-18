@@ -114,10 +114,11 @@ func _on_frog_animation_time_timeout():
 		if Global.checkRedFrogCanAttack && Global.checkRedFrogIsAlive:
 			var newFireBall = flameScene.instantiate()
 			add_child(newFireBall)
+			Global.checkFrogAreAttacking = false
 		if Global.checkGreenFrogCanAttack && Global.checkGreenFrogIsAlive:
 			var newPlantBullet = plantBullet.instantiate()
 			add_child(newPlantBullet)
-		Global.checkFrogAreAttacking = false
+			Global.checkFrogAreAttacking = false
 		
 		Global.checkRedFrogCanAttack = true
 		Global.checkGreenFrogCanAttack = true

@@ -26,15 +26,17 @@ func checkIfGameHasEnded():
 		queue_free()
 
 func moveToAttackGoldKnight():
-	if !Global.checkFrogAreAttacking || !checkIsHurt:
+	if !Global.checkFrogAreAttacking:
 		if position.x < Global.goldKnightPositionx-10:
 			velocity.x = Global.redFrogVelocity
 		elif position.x > Global.goldKnightPositionx+10:
 			velocity.x = -Global.redFrogVelocity
 		else:
 			velocity.x = 0
+			print("dont move cause of player")
 	else:
 		velocity.x = 0
+		print("should not move")
 
 func animate():
 	if !checkIsHurt:

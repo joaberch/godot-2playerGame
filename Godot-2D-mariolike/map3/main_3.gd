@@ -15,7 +15,7 @@ var checkZoomAgain
 var cameraZoom = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#Making the left and right border move
 	moveBorder()
 	#Making the camera move
@@ -83,10 +83,10 @@ func _on_timer_camera_speed_2_timeout():
 	print(cameraSpeed)
 
 
-func _on_camera_un_zoom_area_entered(area):
+func _on_camera_un_zoom_area_entered(_area):
 	checkUnzoom = true
 	cameraSpeed = 3.1
 
-
-func _on_camera_zoom_area_entered(area):
+func _on_camera_zoom_area_entered(_area):
 	checkZoomAgain = true
+	leftBorder.position.x+= 500
