@@ -7,7 +7,7 @@ extends Node
 @onready var sceneminigame3 = "res://map3/main_3.tscn"
 
 #################################### Mini Game 1 Variable ########################
-@export var owlspeed = 500
+var owlspeed = 500
 @export var catspeed = 250
 @export var lionspeed = 400
 
