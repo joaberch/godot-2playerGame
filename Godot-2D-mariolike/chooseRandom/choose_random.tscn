@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyklqk15vkrp7"]
+
+[ext_resource type="Texture2D" uid="uid://cd4788xlgdfae" path="res://art/art/black.png" id="1_72ei8"]
+[ext_resource type="Script" path="res://chooseRandom/choose_random.gd" id="1_y2mn0"]
+[ext_resource type="Texture2D" uid="uid://dd84xp6v0ot35" path="res://art/art/game1.png" id="2_jcjse"]
+[ext_resource type="Texture2D" uid="uid://lcpdhgicxmqa" path="res://art/art/game2.png" id="3_ekgnf"]
+[ext_resource type="Texture2D" uid="uid://c8huj3dxqgmxb" path="res://art/art/game3.png" id="4_67ptj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0tm07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jcjse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ekgnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_67ptj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="chooseRandom" type="Node2D"]
+script = ExtResource("1_y2mn0")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(576.5, 323.5)
+scale = Vector2(1.02691, 1.04167)
+texture = ExtResource("1_72ei8")
+
+[node name="gameImage" type="AnimatedSprite2D" parent="."]
+position = Vector2(577, 318)
+sprite_frames = SubResource("SpriteFrames_0tm07")
+frame_progress = 0.112271
+speed_scale = 5.0

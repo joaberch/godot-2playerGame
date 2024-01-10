@@ -33,10 +33,8 @@ func moveToAttackGoldKnight():
 			velocity.x = -Global.redFrogVelocity
 		else:
 			velocity.x = 0
-			print("dont move cause of player")
 	else:
 		velocity.x = 0
-		print("should not move")
 
 func animate():
 	if !checkIsHurt:

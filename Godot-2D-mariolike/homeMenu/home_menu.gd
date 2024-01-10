@@ -57,7 +57,6 @@ func disableButton():
 
 func checkWinner():
 	if (Global.minigame1winner == 1 && Global.minigame2winner == 1) || (Global.minigame1winner == 1 && Global.minigame3winner == 1) || (Global.minigame2winner == 1 && Global.minigame3winner == 1):
-		print("player 1 won")
 		miniGame1.queue_free()
 		miniGame2.queue_free()
 		miniGame3.queue_free()
@@ -66,7 +65,6 @@ func checkWinner():
 		$Player1Won.visible = true
 		$WinAudio.play()
 	if (Global.minigame1winner == 2 && Global.minigame2winner == 2) || (Global.minigame1winner == 2 && Global.minigame3winner == 2) || (Global.minigame2winner == 2 && Global.minigame3winner == 2):
-		print("player 2 won")
 		miniGame1.queue_free()
 		miniGame2.queue_free()
 		miniGame3.queue_free()
@@ -95,3 +93,7 @@ func _on_button_3_pressed():
 	buttonGame2.disabled = true
 	buttonGame3.disabled = true
 	get_tree().change_scene_to_file(Global.sceneminigame3)
+
+
+func _on_random_pressed():
+	get_tree().change_scene_to_file(Global.scenerandomChoose)
