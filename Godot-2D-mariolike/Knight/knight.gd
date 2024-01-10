@@ -18,6 +18,8 @@ func _physics_process(_delta):
 func checkIfGameHasEnded():
 	if Global.minigame2winner:
 		queue_free()
+		pass
+#TODO : hide
 
 func getPosition():
 	Global.knightpositionx = global_position.x

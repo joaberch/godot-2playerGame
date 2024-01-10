@@ -51,7 +51,7 @@ func checkWinner():
 		player2win.position.x = camera.offset.x + 450
 	
 	if Global.checkDeadPlayer1 == true && Global.checkDeadPlayer2 == true:
-		get_tree().change_scene_to_file(Global.scenehomeMenu)
+		get_tree().change_scene_to_file(Global.scenerandomChoose)
 
 func moveCamera():
 	camera.offset.x += cameraSpeed

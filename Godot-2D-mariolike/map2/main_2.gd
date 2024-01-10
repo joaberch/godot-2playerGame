@@ -39,12 +39,12 @@ func overtimeCheckHasEnded():
 		$player2win.visible = true
 		Global.minigame2winner = 2
 		lastTimerOvertime.start()
-		get_tree().change_scene_to_file(Global.scenehomeMenu) #TODO : correct the error with the timer (it doesn't end/start?)
+		get_tree().change_scene_to_file(Global.scenerandomChoose) #TODO : correct the error with the timer (it doesn't end/start?)
 	elif Global.knightDamageTaken < Global.goldKnightDamageTaken:
 		$player1win.visible = true
 		Global.minigame2winner = 1
 		lastTimerOvertime.start()
-		get_tree().change_scene_to_file(Global.scenehomeMenu) #TODO : correct the error with the timer (it doesn't end/start?)
+		get_tree().change_scene_to_file(Global.scenerandomChoose) #TODO : correct the error with the timer (it doesn't end/start?)
 
 func writeTimeRemaining():
 	if !Global.minigame2winner:
@@ -97,11 +97,11 @@ func _on_game_timer_timeout():
 
 
 func _on_timer_before_home_timeout():
-	get_tree().change_scene_to_file(Global.scenehomeMenu)
+	get_tree().change_scene_to_file(Global.scenerandomChoose)
 
 
 func _on_last_timer_overtime_timeout():
-	get_tree().change_scene_to_file(Global.scenehomeMenu)
+	get_tree().change_scene_to_file(Global.scenerandomChoose)
 
 
 func _on_frog_attack_timeout():

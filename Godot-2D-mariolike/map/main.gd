@@ -29,4 +29,4 @@ func _on_timer_timeout(): #At the end of the
 
 
 func _on_waiting_at_the_end_timeout():
-	get_tree().change_scene_to_file(Global.scenehomeMenu)
+	get_tree().change_scene_to_file(Global.scenerandomChoose)
