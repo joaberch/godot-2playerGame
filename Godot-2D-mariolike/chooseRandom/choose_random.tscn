@@ -34,5 +34,5 @@ texture = ExtResource("1_72ei8")
 [node name="gameImage" type="AnimatedSprite2D" parent="."]
 position = Vector2(577, 318)
 sprite_frames = SubResource("SpriteFrames_0tm07")
-frame_progress = 0.112271
+frame_progress = 0.697263
 speed_scale = 5.0
