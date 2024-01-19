@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bximtmpkcd8xp"]
+
+[ext_resource type="Texture2D" uid="uid://ds8wiolkbuhxq" path="res://art/Goban_9x9.png" id="1_0cys3"]
+[ext_resource type="Script" path="res://9x9Playground/playground_9x_9.gd" id="1_ob137"]
+
+[node name="playground_9x9" type="Node2D"]
+script = ExtResource("1_ob137")
+
+[node name="Goban9x9" type="Sprite2D" parent="."]
+position = Vector2(547, 308)
+texture = ExtResource("1_0cys3")
