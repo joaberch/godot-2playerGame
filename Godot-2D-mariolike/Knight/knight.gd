@@ -7,19 +7,16 @@ var weapon = "fist"
 var checkAttack
 var checkIsAttacking
 var cptr = 0
+var minigame2winner
+
+func _ready():
+	visible = true
 
 func _physics_process(_delta):
 	moveplayer()
 	getPosition()
 	animateplayer()
-	checkIfGameHasEnded()
 	move_and_slide()
-
-func checkIfGameHasEnded():
-	if Global.minigame2winner:
-		queue_free()
-		pass
-#TODO : hide
 
 func getPosition():
 	Global.knightpositionx = global_position.x

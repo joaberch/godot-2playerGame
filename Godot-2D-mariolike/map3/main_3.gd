@@ -6,6 +6,8 @@ extends Node2D
 @onready var leftBorder = $Camera2D/leftLimit
 @onready var player1win = $player1win
 @onready var player2win = $player2win
+@onready var redFish = $RedFish
+@onready var pinkFish = $pinkFish
 var cameraSpeed = 0
 var CheckDeadPlayer1
 var CheckDeadPlayer2
@@ -43,14 +45,14 @@ func unZoom():
 		checkUnzoom = false
 
 func checkWinner():
-	if Global.minigame3winner == 1:
+	if !pinkFish:
 		player1win.position.x = camera.offset.x + 450
 		player1win.visible = true
-	if Global.minigame3winner == 2:
+	if !redFish:
 		player2win.visible = true
 		player2win.position.x = camera.offset.x + 450
 	
-	if Global.checkDeadPlayer1 == true && Global.checkDeadPlayer2 == true:
+	if !pinkFish && !redFish:
 		get_tree().change_scene_to_file(Global.scenerandomChoose)
 
 func moveCamera():

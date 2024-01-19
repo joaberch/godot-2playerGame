@@ -12,13 +12,21 @@ extends Node2D
 @onready var lastTimerOvertime = $lastTimerOvertime
 @onready var frogAnimationTimer = $frogAnimationTime
 
+@onready var knight = $Knight
+@onready var goldKnight = $GoldKnight
+@onready var greenFrog = $greenfrog
+@onready var redFrog = $redFrog
+
 var checkOvertime
+var checkGameHasEnded
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	shurikenTimer.wait_time = Global.shurikencooldown
 	shurikenTimer.start()
 	timerGame.start()
+	Global.knightDamageTaken = 0
+	Global.goldKnightDamageTaken = 0
 
 func _process(_delta):
 	writeScore()
@@ -29,7 +37,7 @@ func _process(_delta):
 		overtimeCheckHasEnded()
 	
 	#If game has ended
-	if Global.minigame2winner:
+	if checkGameHasEnded:
 		$overtime.visible = false
 
 func overtimeCheckHasEnded():
@@ -37,17 +45,15 @@ func overtimeCheckHasEnded():
 	$overtime.visible = true
 	if Global.knightDamageTaken > Global.goldKnightDamageTaken:
 		$player2win.visible = true
-		Global.minigame2winner = 2
 		lastTimerOvertime.start()
 		get_tree().change_scene_to_file(Global.scenerandomChoose) #TODO : correct the error with the timer (it doesn't end/start?)
 	elif Global.knightDamageTaken < Global.goldKnightDamageTaken:
 		$player1win.visible = true
-		Global.minigame2winner = 1
 		lastTimerOvertime.start()
 		get_tree().change_scene_to_file(Global.scenerandomChoose) #TODO : correct the error with the timer (it doesn't end/start?)
 
 func writeTimeRemaining():
-	if !Global.minigame2winner:
+	if !checkGameHasEnded:
 		timeRemaining.text = str(round(timerGame.time_left))
 	else:
 		timeRemaining.visible = false
@@ -66,13 +72,13 @@ func restartCooldown():
 	shurikenTimer.start()
 
 func spawnGoldKnightShuriken():
-	if !Global.minigame2winner:
+	if !checkGameHasEnded:
 		Global.checkIsKnight = false
 		var newShurikenGoldKnight = shurikenscene.instantiate()
 		add_child(newShurikenGoldKnight)
 
 func spawnKnightShuriken():
-	if !Global.minigame2winner:
+	if !checkGameHasEnded:
 		Global.checkIsKnight = true
 		var newShurikenKnight = shurikenscene.instantiate()
 		add_child(newShurikenKnight)
@@ -86,15 +92,14 @@ func changeShurikenCooldown():
 func _on_game_timer_timeout():
 	if Global.knightDamageTaken > Global.goldKnightDamageTaken:
 		$player2win.visible = true
-		Global.minigame2winner = 2
 		lastTimer.start()
+		checkGameHasEnded = true
 	elif Global.knightDamageTaken < Global.goldKnightDamageTaken:
 		$player1win.visible = true
-		Global.minigame2winner = 1
 		lastTimer.start()
+		checkGameHasEnded = true
 	else:
 		checkOvertime = true
-
 
 func _on_timer_before_home_timeout():
 	get_tree().change_scene_to_file(Global.scenerandomChoose)
@@ -110,7 +115,7 @@ func _on_frog_attack_timeout():
 
 
 func _on_frog_animation_time_timeout():
-	if !Global.minigame2winner:
+	if !checkGameHasEnded:
 		if Global.checkRedFrogCanAttack && Global.checkRedFrogIsAlive:
 			var newFireBall = flameScene.instantiate()
 			add_child(newFireBall)

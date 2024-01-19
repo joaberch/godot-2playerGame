@@ -15,10 +15,6 @@ func _physics_process(_delta):
 	if Global.changephase:
 		changephase()
 	
-	#If the timer runs out
-	if Global.endgame:
-		queue_free()
-	
 	move_and_slide()
 
 func playername():
@@ -85,6 +81,3 @@ func _on_hurtbox_area_entered(area):
 func changephase():
 	position.x = 1100
 	position.y = 600
-
-func endgame():
-	pass

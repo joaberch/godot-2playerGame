@@ -21,10 +21,8 @@ func _on_timer_timeout(): #At the end of the
 	label.visible = false
 	if Global.player1isowl:
 		player1win.visible = true
-		Global.minigame1winner = 1
 	else:
 		player2win.visible = true
-		Global.minigame1winner = 2
 	endTimer.start()
 
 

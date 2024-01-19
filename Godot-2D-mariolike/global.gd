@@ -62,9 +62,9 @@ var checkDeadPlayer2
 
 #################################### Game variable ##############################
 
-var minigame1winner
-var minigame2winner
-var minigame3winner
+#var minigame1winner
+#var minigame2winner
+#var minigame3winner
 
 ##################################### Function #############################
 

@@ -15,10 +15,6 @@ func _physics_process(_delta):
 	if Global.changephase:
 		newgame()
 	
-	#If the game ends
-	if Global.endgame:
-		endgame()
-	
 	move_and_slide()
 
 func playerName():
@@ -28,9 +24,6 @@ func playerName():
 	else:
 		player1.region_enabled = false
 		player2.region_enabled = true
-
-func endgame():
-	queue_free()
 
 func newgame():
 	position.x = 50

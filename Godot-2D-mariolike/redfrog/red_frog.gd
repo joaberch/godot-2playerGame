@@ -9,7 +9,6 @@ func _physics_process(_delta):
 	getPosition()
 	moveToAttackGoldKnight()
 	animate()
-	checkIfGameHasEnded()
 	move_and_slide()
 	if lifePoint < 1:
 		killFrog()
@@ -20,10 +19,6 @@ func killFrog():
 
 func getPosition():
 	Global.redFrogPosition = position
-
-func checkIfGameHasEnded():
-	if Global.minigame2winner:
-		queue_free()
 
 func moveToAttackGoldKnight():
 	if !Global.checkFrogAreAttacking:

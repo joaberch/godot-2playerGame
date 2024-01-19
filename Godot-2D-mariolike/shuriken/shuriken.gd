@@ -26,11 +26,6 @@ func _process(delta):
 	moveShuriken()
 	checkBorder()
 	rotateShuriken()
-	checkIfGameHasEnded()
-
-func checkIfGameHasEnded():
-	if Global.minigame2winner:
-		queue_free()
 
 func rotateShuriken():
 	if checkIsShootByKnight:

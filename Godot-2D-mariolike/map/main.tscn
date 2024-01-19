@@ -162,6 +162,7 @@ label_settings = SubResource("LabelSettings_n732l")
 [node name="Peaceful" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_tt2ad")
 volume_db = 24.0
+pitch_scale = 0.01
 autoplay = true
 
 [node name="GameEnd" type="AudioStreamPlayer2D" parent="."]

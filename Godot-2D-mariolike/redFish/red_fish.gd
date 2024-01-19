@@ -29,6 +29,4 @@ func CheckInput():
 func _on_red_fish_hitbox_area_entered(area):
 	if area.name == "leftLimit":
 		queue_free()
-		if Global.minigame3winner != 1:
-			Global.minigame3winner = 2
 		Global.checkDeadPlayer1 = true
