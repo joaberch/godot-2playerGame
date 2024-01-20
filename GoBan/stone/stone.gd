@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 var checkHasBeenMarked = false
 var checkIsInside = false
@@ -15,26 +15,24 @@ func _process(delta):
 		if !checkHasBeenMarked && checkIsInside:
 			# Perform actions only if the area has not been marked
 			Global.played.append(get_meta("name"))
-			Global.updateMove()
+			Global.update()
 			checkHasBeenMarked = true
 			
 			# Toggle turn
 			Global.checkIsBlackTurn = !Global.checkIsBlackTurn
 
-# Called when the mouse enters the area.
-func _on_mouse_entered():
+func _on_hitbox_mouse_entered():
 	checkIsInside = true
 	if !checkHasBeenMarked:
 		if Global.checkIsBlackTurn:
-			$CollisionShape2D/black.visible = true
+			$hitbox/hitbox/black.visible = true
 		else:
-			$CollisionShape2D/white.visible = true
+			$hitbox/hitbox/white.visible = true
 
-# Called when the mouse exits the area.
-func _on_mouse_exited():
+func _on_hitbox_mouse_exited():
 	checkIsInside = false
 	if !checkHasBeenMarked:
 		if Global.checkIsBlackTurn:
-			$CollisionShape2D/black.visible = false
+			$hitbox/hitbox/black.visible = false
 		else:
-			$CollisionShape2D/white.visible = false
+			$hitbox/hitbox/white.visible = false

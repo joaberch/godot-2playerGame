@@ -4,25 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://dukve20tcmj6f" path="res://art/blackStone.png" id="1_hi0ma"]
 [ext_resource type="Texture2D" uid="uid://c1w8rdu8pod5o" path="res://art/whiteStone.png" id="2_uws77"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_n1m0x"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqadn"]
 radius = 21.0238
 
-[node name="Stone" type="Area2D"]
+[node name="stone" type="StaticBody2D"]
 script = ExtResource("1_0eeit")
-metadata/name = ""
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_n1m0x")
+[node name="hitbox" type="Area2D" parent="."]
 
-[node name="black" type="Sprite2D" parent="CollisionShape2D"]
+[node name="hitbox" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_tqadn")
+
+[node name="black" type="Sprite2D" parent="hitbox/hitbox"]
 visible = false
 position = Vector2(0, 4)
 texture = ExtResource("1_hi0ma")
 
-[node name="white" type="Sprite2D" parent="CollisionShape2D"]
+[node name="white" type="Sprite2D" parent="hitbox/hitbox"]
 visible = false
 position = Vector2(0, 4)
 texture = ExtResource("2_uws77")
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="hitbox" to="." method="_on_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="hitbox" to="." method="_on_hitbox_mouse_exited"]

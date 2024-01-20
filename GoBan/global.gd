@@ -11,6 +11,9 @@ var whitePlayed = []
 func _ready():
 	pass # Replace with function body.
 
+func update():
+	updateMove()
+
 func updateMove():
 	blackPlayed = []
 	whitePlayed = []
