@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bximtmpkcd8xp"]
+[gd_scene load_steps=4 format=3 uid="uid://bximtmpkcd8xp"]
 
 [ext_resource type="Texture2D" uid="uid://ds8wiolkbuhxq" path="res://art/Goban_9x9.png" id="1_0cys3"]
 [ext_resource type="Script" path="res://9x9Playground/playground_9x_9.gd" id="1_ob137"]
+[ext_resource type="PackedScene" uid="uid://c62fj8gmrr4ky" path="res://stone/stone.tscn" id="5_wxg1b"]
 
 [node name="playground_9x9" type="Node2D"]
 script = ExtResource("1_ob137")
@@ -9,3 +10,246 @@ script = ExtResource("1_ob137")
 [node name="Goban9x9" type="Sprite2D" parent="."]
 position = Vector2(547, 308)
 texture = ExtResource("1_0cys3")
+
+[node name="A9" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(343, 104)
+
+[node name="A8" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(343, 155)
+
+[node name="A7" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(343, 206)
+
+[node name="A6" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(343, 257)
+
+[node name="A5" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(343, 308)
+
+[node name="A4" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(343, 359)
+
+[node name="A3" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(343, 410)
+
+[node name="A2" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(343, 461)
+
+[node name="A1" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(343, 512)
+
+[node name="B9" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(394, 104)
+
+[node name="B8" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(394, 155)
+
+[node name="B7" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(394, 206)
+
+[node name="B6" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(394, 257)
+
+[node name="B5" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(394, 308)
+
+[node name="B4" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(394, 359)
+
+[node name="B3" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(394, 410)
+
+[node name="B2" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(394, 461)
+
+[node name="B1" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(394, 512)
+
+[node name="C9" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(445, 104)
+
+[node name="C8" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(445, 155)
+
+[node name="C7" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(445, 206)
+
+[node name="C6" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(445, 257)
+
+[node name="C5" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(445, 308)
+
+[node name="C4" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(445, 359)
+
+[node name="C3" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(445, 410)
+
+[node name="C2" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(445, 461)
+
+[node name="C1" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(445, 512)
+
+[node name="D9" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(496, 104)
+
+[node name="D8" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(496, 155)
+
+[node name="D7" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(496, 206)
+
+[node name="D6" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(496, 257)
+
+[node name="D5" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(496, 308)
+
+[node name="D4" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(496, 359)
+
+[node name="D3" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(496, 410)
+
+[node name="D2" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(496, 461)
+
+[node name="D1" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(496, 512)
+
+[node name="E9" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(547, 104)
+
+[node name="E8" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(547, 155)
+
+[node name="E7" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(547, 206)
+
+[node name="E6" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(547, 257)
+
+[node name="E5" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(547, 308)
+
+[node name="E4" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(547, 359)
+
+[node name="E3" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(547, 410)
+
+[node name="E2" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(547, 461)
+
+[node name="E1" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(547, 512)
+
+[node name="F9" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(598, 104)
+
+[node name="F8" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(598, 155)
+
+[node name="F7" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(598, 206)
+
+[node name="F6" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(598, 257)
+
+[node name="F5" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(598, 308)
+
+[node name="F4" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(598, 359)
+
+[node name="F3" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(598, 410)
+
+[node name="F2" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(598, 461)
+
+[node name="F1" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(598, 512)
+
+[node name="G9" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(649, 104)
+
+[node name="G8" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(649, 155)
+
+[node name="G7" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(649, 206)
+
+[node name="G6" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(649, 257)
+
+[node name="G5" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(649, 308)
+
+[node name="G4" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(649, 359)
+
+[node name="G3" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(649, 410)
+
+[node name="G2" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(649, 461)
+
+[node name="G1" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(649, 512)
+
+[node name="H9" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(700, 104)
+
+[node name="H8" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(700, 155)
+
+[node name="H7" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(700, 206)
+
+[node name="H6" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(700, 257)
+
+[node name="H5" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(700, 308)
+
+[node name="H4" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(700, 359)
+
+[node name="H3" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(700, 410)
+
+[node name="H2" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(700, 461)
+
+[node name="H1" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(700, 512)
+
+[node name="J9" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(751, 104)
+
+[node name="J8" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(751, 155)
+
+[node name="J7" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(751, 206)
+
+[node name="J6" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(751, 257)
+
+[node name="J5" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(751, 308)
+
+[node name="J4" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(751, 359)
+
+[node name="J3" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(751, 410)
+
+[node name="J2" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(751, 461)
+
+[node name="J1" parent="." instance=ExtResource("5_wxg1b")]
+position = Vector2(751, 512)
