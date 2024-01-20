@@ -13,7 +13,7 @@ config_version=5
 config/name="GoBan"
 run/main_scene="res://9x9Playground/playground_9x_9.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://art/whiteStone.png"
 
 [autoload]
 
