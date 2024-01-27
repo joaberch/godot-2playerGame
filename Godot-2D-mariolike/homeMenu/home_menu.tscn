@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://1jdaf0caj24e"]
+[gd_scene load_steps=44 format=3 uid="uid://1jdaf0caj24e"]
 
 [ext_resource type="Script" path="res://homeMenu/home_menu.gd" id="1_ek3j0"]
 [ext_resource type="TileSet" uid="uid://c7ahos35bsmq0" path="res://map/main.tres" id="1_m512p"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c1lgb2gcu37na" path="res://art/NinjaAdventure/Actor/Boss/GiantFrog2/Faceset.png" id="12_5jvv3"]
 [ext_resource type="Texture2D" uid="uid://ocv3wrf64dwg" path="res://art/NinjaAdventure/Actor/Animals/Fish/FacesetRed.png" id="13_jddrc"]
 [ext_resource type="AudioStream" uid="uid://dymhlfwm5s3it" path="res://art/NinjaAdventure/Sounds/Game/Success3.wav" id="14_fffeg"]
+[ext_resource type="Texture2D" uid="uid://dcg4beit52igb" path="res://art/NinjaAdventure/Actor/Monsters/Snake/Faceset.png" id="14_v78iw"]
 [ext_resource type="Texture2D" uid="uid://qx7i61edy8s6" path="res://art/NinjaAdventure/Actor/Monsters/BambooYellow/Faceset.png" id="15_352ag"]
 
 [sub_resource type="Animation" id="Animation_lfoa8"]
@@ -577,6 +578,16 @@ offset_bottom = 476.0
 text = "Start the game"
 icon = ExtResource("13_jddrc")
 
+[node name="Minigame4" type="Node2D" parent="TileMap"]
+
+[node name="Button4" type="Button" parent="TileMap/Minigame4"]
+offset_left = 471.0
+offset_top = 552.0
+offset_right = 634.0
+offset_bottom = 598.0
+text = "Start the game"
+icon = ExtResource("14_v78iw")
+
 [node name="Player2Won" type="Label" parent="."]
 visible = false
 offset_left = 277.0
@@ -609,4 +620,5 @@ icon = ExtResource("15_352ag")
 [connection signal="pressed" from="TileMap/Minigame1/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="TileMap/Minigame2/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="TileMap/Minigame3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="TileMap/Minigame4/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="random" to="." method="_on_random_pressed"]

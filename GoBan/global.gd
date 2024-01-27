@@ -13,6 +13,10 @@ func _ready():
 
 func update():
 	updateMove()
+	checkTake()
+
+func checkTake():
+	pass
 
 func updateMove():
 	blackPlayed = []
@@ -21,12 +25,13 @@ func updateMove():
 	for i in range(played.size()):
 		if i%2 == 0:
 			blackPlayed.append(played[i])
-			print("black : " )
-			print(blackPlayed)
 		else:
 			whitePlayed.append(played[i])
-			print("white : ")
-			print(whitePlayed)
+			
+	print("black : " )
+	print(blackPlayed)
+	print("white : ")
+	print(whitePlayed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

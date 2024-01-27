@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3y4tgex22yn4"]
+
+[ext_resource type="PackedScene" uid="uid://dd8duosns52nl" path="res://redSnake/snake_red.tscn" id="1_yb1fo"]
+[ext_resource type="PackedScene" uid="uid://bb8u2wferudft" path="res://greenSnake/snake_green.tscn" id="2_qpo0b"]
+
+[node name="main_4" type="Node2D"]
+
+[node name="snakeRed" parent="." instance=ExtResource("1_yb1fo")]
+position = Vector2(1100, 325)
+scale = Vector2(3, 3)
+
+[node name="snakeGreen" parent="." instance=ExtResource("2_qpo0b")]
+position = Vector2(30, 325)
+scale = Vector2(3, 3)

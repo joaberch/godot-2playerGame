@@ -19,6 +19,9 @@ func _on_timer_timeout(): #At the end of the
 	Global.endgame = true
 	GameEndSound.play()
 	label.visible = false
+	$owl.visible = false
+	$cat.visible = false
+	$lion.visible = false
 	if Global.player1isowl:
 		player1win.visible = true
 	else:
