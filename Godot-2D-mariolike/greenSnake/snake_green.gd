@@ -47,7 +47,6 @@ func checkInput():
 	elif Input.is_action_pressed("up-W") && direction != "D":
 		direction = "U"
 
-
 func _on_hitbox_area_entered(area):
 	if area.name == "trailHitbox":
 		Global.checkGreenSnakeIsAlive = false

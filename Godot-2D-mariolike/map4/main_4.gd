@@ -40,7 +40,9 @@ func displayWinner():
 			timer.start()
 		checkTimerIsRunning = true
 	elif !Global.checkRedSnakeIsAlive && !Global.checkGreenSnakeIsAlive:
-		pass
+		if !checkTimerIsRunning:
+			timer.start()
+		checkTimerIsRunning = true
 
 func createTrail():
 	createRedTrail()
