@@ -5,6 +5,7 @@ var directionKnight = Global.knightDirection
 var directionGoldKnight = Global.goldKnightDirection
 var checkGoingLeft
 var delt
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Global.checkIsKnight:

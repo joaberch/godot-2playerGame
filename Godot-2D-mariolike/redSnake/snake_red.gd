@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animationSprite = $AnimatedSprite2D
+@onready var trailScene = preload("res://redTrail/red_trail.tscn")
 
 var stringAnimation = "left"
 var direction = "L"
@@ -11,7 +12,6 @@ func _ready():
 func _physics_process(delta):
 	moveplayer()
 	animationSprite.play(stringAnimation)
-	
 	move_and_slide()
 
 func moveplayer():

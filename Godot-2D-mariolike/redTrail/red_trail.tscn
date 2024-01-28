@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqp1ukwxbte2l"]
+
+[ext_resource type="Texture2D" uid="uid://mpckjn4muksk" path="res://art/art/red.png" id="1_78kxc"]
+
+[node name="redTrail" type="Sprite2D"]
+position = Vector2(1100, 325)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_78kxc")
