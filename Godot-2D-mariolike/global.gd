@@ -65,6 +65,9 @@ var checkDeadPlayer2
 @export var redSnakeVelocity = 250
 @export var greenSnakeVelocity = 250
 
+var checkRedSnakeIsAlive = true
+var checkGreenSnakeIsAlive = true
+
 #################################### Game variable ##############################
 
 #var minigame1winner

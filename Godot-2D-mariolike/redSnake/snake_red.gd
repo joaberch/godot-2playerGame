@@ -12,7 +12,14 @@ func _ready():
 func _physics_process(delta):
 	moveplayer()
 	animationSprite.play(stringAnimation)
+	
+	endOfTheGame()
+	
 	move_and_slide()
+
+func endOfTheGame():
+	if !Global.checkRedSnakeIsAlive:
+		visible = false
 
 func moveplayer():
 	checkInput()
@@ -32,11 +39,16 @@ func moveplayer():
 			stringAnimation = 'up'
 
 func checkInput():
-	if Input.is_action_pressed("right"):
+	if Input.is_action_pressed("right") && direction != "L":
 		direction = "R"
-	elif Input.is_action_pressed("left"):
+	elif Input.is_action_pressed("left") && direction != "R":
 		direction = "L"
-	if Input.is_action_pressed("down"):
+	if Input.is_action_pressed("down") && direction != "U":
 		direction = "D"
-	elif Input.is_action_pressed("up"):
+	elif Input.is_action_pressed("up") && direction != "D":
 		direction = "U"
+
+
+func _on_hitbox_area_entered(area):
+	if area.name == "trailHitbox":
+		Global.checkRedSnakeIsAlive = false

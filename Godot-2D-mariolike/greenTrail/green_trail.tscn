@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6klqev0qm62a"]
+[gd_scene load_steps=4 format=3 uid="uid://b6klqev0qm62a"]
 
 [ext_resource type="Texture2D" uid="uid://fvfsgpktgyso" path="res://art/art/green2.png" id="1_wtysc"]
+[ext_resource type="Script" path="res://greenTrail/green_trail.gd" id="2_of7wl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4i3i"]
+size = Vector2(900, 1012)
 
 [node name="green_trail" type="Sprite2D"]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_wtysc")
+script = ExtResource("2_of7wl")
+
+[node name="trailHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trailHitbox"]
+shape = SubResource("RectangleShape2D_f4i3i")

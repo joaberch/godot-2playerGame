@@ -140,7 +140,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sindm"]
-size = Vector2(15, 16)
+size = Vector2(9, 10)
 
 [node name="snakeRed" type="CharacterBody2D"]
 script = ExtResource("1_57noj")
@@ -159,3 +159,5 @@ shape = SubResource("RectangleShape2D_sindm")
 position = Vector2(1.19209e-07, -11)
 scale = Vector2(0.057986, 0.057986)
 texture = ExtResource("3_kxupc")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

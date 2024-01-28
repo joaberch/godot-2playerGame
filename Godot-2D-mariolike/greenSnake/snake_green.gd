@@ -12,7 +12,13 @@ func _physics_process(delta):
 	moveplayer()
 	animationSprite.play(stringAnimation)
 	
+	endOfTheGame()
+	
 	move_and_slide()
+
+func endOfTheGame():
+	if !Global.checkGreenSnakeIsAlive:
+		visible = false
 
 func moveplayer():
 	checkInput()
@@ -32,11 +38,16 @@ func moveplayer():
 			stringAnimation = 'up'
 
 func checkInput():
-	if Input.is_action_pressed("right-D"):
+	if Input.is_action_pressed("right-D") && direction != "L":
 		direction = "R"
-	elif Input.is_action_pressed("left-A"):
+	elif Input.is_action_pressed("left-A") && direction != "R":
 		direction = "L"
-	if Input.is_action_pressed("down-S"):
+	if Input.is_action_pressed("down-S") && direction != "U":
 		direction = "D"
-	elif Input.is_action_pressed("up-W"):
+	elif Input.is_action_pressed("up-W") && direction != "D":
 		direction = "U"
+
+
+func _on_hitbox_area_entered(area):
+	if area.name == "trailHitbox":
+		Global.checkGreenSnakeIsAlive = false

@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqp1ukwxbte2l"]
+[gd_scene load_steps=4 format=3 uid="uid://cqp1ukwxbte2l"]
 
 [ext_resource type="Texture2D" uid="uid://mpckjn4muksk" path="res://art/art/red.png" id="1_78kxc"]
+[ext_resource type="Script" path="res://redTrail/red_trail.gd" id="2_eryd0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5hdu"]
+size = Vector2(900, 1012)
 
 [node name="redTrail" type="Sprite2D"]
-position = Vector2(1100, 325)
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("1_78kxc")
+script = ExtResource("2_eryd0")
+
+[node name="trailHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trailHitbox"]
+shape = SubResource("RectangleShape2D_p5hdu")
