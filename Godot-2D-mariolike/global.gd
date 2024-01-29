@@ -6,6 +6,7 @@ extends Node
 @onready var sceneminigame2 = "res://map2/main_2.tscn"
 @onready var sceneminigame3 = "res://map3/main_3.tscn"
 @onready var sceneminigame4 = "res://map4/main_4.tscn"
+@onready var sceneminigame5 = "res://map5/main_5.tscn"
 @onready var scenerandomChoose = "res://chooseRandom/choose_random.tscn"
 @onready var sceneChooseLevel = "res://selectLevel/select_level.tscn"
 

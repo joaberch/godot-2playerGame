@@ -1203,6 +1203,13 @@ offset_bottom = 482.0
 text = "Start the game"
 icon = ExtResource("4_uwnjm")
 
+[node name="minigame5" type="Button" parent="."]
+offset_left = 269.0
+offset_top = 530.0
+offset_right = 392.0
+offset_bottom = 561.0
+text = "Start the game"
+
 [node name="back" type="Button" parent="."]
 offset_left = 50.0
 offset_top = 580.0
@@ -1215,4 +1222,5 @@ icon = ExtResource("6_jstcs")
 [connection signal="pressed" from="minigame2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="minigame3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="minigame4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="minigame5" to="." method="_on_minigame_5_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_button_pressed"]

@@ -20,6 +20,8 @@ func _on_button_3_pressed():
 func _on_button_4_pressed():
 	get_tree().change_scene_to_file(Global.sceneminigame4)
 
-
 func _on_button_pressed():
 	get_tree().change_scene_to_file(Global.scenehomeMenu)
+
+func _on_minigame_5_pressed():
+	get_tree().change_scene_to_file(Global.sceneminigame5)
