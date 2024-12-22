@@ -418,12 +418,12 @@ libraries = {
 }
 
 [node name="title" type="Label" parent="Control"]
-offset_left = 437.0
+offset_left = 359.0
 offset_top = -86.0
-offset_right = 689.0
+offset_right = 767.0
 offset_bottom = 256.0
-text = "1 vs 1
-game"
+text = "2 player
+   game"
 label_settings = SubResource("LabelSettings_7mii2")
 
 [node name="minigame1" type="Button" parent="Control"]
