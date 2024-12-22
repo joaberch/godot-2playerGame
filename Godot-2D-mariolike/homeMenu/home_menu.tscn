@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://1jdaf0caj24e"]
+[gd_scene load_steps=39 format=3 uid="uid://1jdaf0caj24e"]
 
 [ext_resource type="Script" path="res://homeMenu/home_menu.gd" id="1_ek3j0"]
 [ext_resource type="TileSet" uid="uid://c7ahos35bsmq0" path="res://map/main.tres" id="1_m512p"]
@@ -296,6 +296,14 @@ font_color = Color(1, 0, 0, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_5awv2"]
+line_spacing = 0.0
+font = ExtResource("6_bioi8")
+font_size = 15
+font_color = Color(1, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
 [node name="HomeMenu" type="Node2D"]
 position = Vector2(10, 50)
 script = ExtResource("1_ek3j0")
@@ -458,6 +466,16 @@ offset_bottom = 719.0
 disabled = true
 text = "Start the game"
 icon = ExtResource("15_71l13")
+
+[node name="Controls" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 504.0
+offset_right = 682.0
+offset_bottom = 599.0
+text = "Player 1: Use the arrow keys (Up, Down, Left, Right)
+Player 2: Use W,A, S, D keys"
+label_settings = SubResource("LabelSettings_5awv2")
 
 [connection signal="pressed" from="Control/minigame1" to="." method="_on_minigame_1_pressed"]
 [connection signal="pressed" from="Control/minigame2" to="." method="_on_minigame_2_pressed"]
