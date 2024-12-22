@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3y4tgex22yn4"]
+[gd_scene load_steps=16 format=3 uid="uid://d3y4tgex22yn4"]
 
 [ext_resource type="Script" path="res://map4/main_4.gd" id="1_bgv8g"]
 [ext_resource type="PackedScene" uid="uid://dd8duosns52nl" path="res://redSnake/snake_red.tscn" id="1_yb1fo"]
@@ -788,6 +788,12 @@ font_color = Color(0, 1, 0, 1)
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tq71"]
+size = Vector2(32, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hd5ni"]
+size = Vector2(1216, 40)
+
 [node name="main_4" type="Node2D"]
 script = ExtResource("1_bgv8g")
 
@@ -827,5 +833,23 @@ label_settings = SubResource("LabelSettings_dwrf8")
 [node name="TimerReturn" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="trailHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trailHitbox"]
+position = Vector2(-16, 328)
+shape = SubResource("RectangleShape2D_1tq71")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="trailHitbox"]
+position = Vector2(1168, 328)
+shape = SubResource("RectangleShape2D_1tq71")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="trailHitbox"]
+position = Vector2(576, -16)
+shape = SubResource("RectangleShape2D_hd5ni")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="trailHitbox"]
+position = Vector2(576, 668)
+shape = SubResource("RectangleShape2D_hd5ni")
 
 [connection signal="timeout" from="TimerReturn" to="." method="_on_timer_return_timeout"]
