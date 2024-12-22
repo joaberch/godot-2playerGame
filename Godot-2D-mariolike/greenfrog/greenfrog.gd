@@ -21,7 +21,7 @@ func getPosition():
 	Global.greenFrogPosition = position
 
 func moveToAttackKnight():
-	if !Global.checkFrogAreAttacking || !checkIsHurt:
+	if !Global.checkFrogAreAttacking:
 		if position.x < Global.knightpositionx-10:
 			velocity.x = Global.greenFrogVelocity
 		elif position.x > Global.knightpositionx+10:
