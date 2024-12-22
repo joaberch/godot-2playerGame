@@ -28,6 +28,5 @@ func _on_timer_timeout(): #At the end of the
 		player2win.visible = true
 	endTimer.start()
 
-
 func _on_waiting_at_the_end_timeout():
-	get_tree().change_scene_to_file(Global.scenerandomChoose)
+	get_tree().change_scene_to_file(Global.scenehomeMenu)

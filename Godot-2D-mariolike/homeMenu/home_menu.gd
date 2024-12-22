@@ -1,13 +1,5 @@
 extends Node2D
 
-#TODO : frog can't move when attack | restart button
-@onready var buttonGame1 = $TileMap/Minigame1/Button1
-@onready var buttonGame2 = $TileMap/Minigame2/Button2
-@onready var buttonGame3 = $TileMap/Minigame3/Button3
-@onready var miniGame1 = $TileMap/Minigame1
-@onready var miniGame2 = $TileMap/Minigame2
-@onready var miniGame3 = $TileMap/Minigame3
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Animate characters
@@ -15,17 +7,34 @@ func _ready():
 
 func animateCharacter():
 	#Starting the animation
-	$TileMap/Minigame1/owlSprite/AnimationPlayer.play("right")
-	$TileMap/Minigame1/lionSprite/AnimationPlayer.play("left")
-	$TileMap/Minigame1/catSprite/AnimationPlayer.play("left")
+	var owlAnimation = $Control/TileMap/Minigame1/owlSprite/AnimationPlayer
+	var lionAnimation = $Control/TileMap/Minigame1/lionSprite/AnimationPlayer
+	var catAnimation = $Control/TileMap/Minigame1/catSprite/AnimationPlayer
+	var frog1Animation = $Control/TileMap/Minigame2/Frog1/AnimationPlayer
+	var frog2Animation = $Control/TileMap/Minigame2/Frog2/AnimationPlayer
+	var knight1Animation = $Control/TileMap/Minigame2/knight1/AnimationPlayer
+	var knight2Animation = $Control/TileMap/Minigame2/knight2/AnimationPlayer
 	
-	$TileMap/Minigame2/Frog1/AnimationPlayer.play("right")
-	$TileMap/Minigame2/Frog2/AnimationPlayer.play("left")
-	$TileMap/Minigame2/knight2/AnimationPlayer.play("left")
-	$TileMap/Minigame2/knight1/AnimationPlayer.play("right")
+	owlAnimation.play("right")
+	lionAnimation.play("left")
+	catAnimation.play("left")
+	
+	frog1Animation.play("right")
+	frog2Animation.play("left")
+	knight2Animation.play("left")
+	knight1Animation.play("right")
 
-func _on_random_pressed():
-	get_tree().change_scene_to_file(Global.scenerandomChoose)
+func _on_minigame_1_pressed() -> void:
+	get_tree().change_scene_to_file(Global.sceneminigame1)
 
-func _on_choose_level_pressed():
-	get_tree().change_scene_to_file(Global.sceneChooseLevel)
+func _on_minigame_2_pressed() -> void:
+	get_tree().change_scene_to_file(Global.sceneminigame2)
+
+func _on_minigame_3_pressed() -> void:
+	get_tree().change_scene_to_file(Global.sceneminigame3)
+
+func _on_minigame_4_pressed() -> void:
+	get_tree().change_scene_to_file(Global.sceneminigame4)
+
+func _on_minigame_5_pressed() -> void:
+	get_tree().change_scene_to_file(Global.sceneminigame5)

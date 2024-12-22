@@ -46,11 +46,11 @@ func overtimeCheckHasEnded():
 	if Global.knightDamageTaken > Global.goldKnightDamageTaken:
 		$player2win.visible = true
 		lastTimerOvertime.start()
-		get_tree().change_scene_to_file(Global.scenerandomChoose) #TODO : correct the error with the timer (it doesn't end/start?)
+		GoToHomeMenu(Global.scenehomeMenu) #TODO : correct the error with the timer (it doesn't end/start?)
 	elif Global.knightDamageTaken < Global.goldKnightDamageTaken:
 		$player1win.visible = true
 		lastTimerOvertime.start()
-		get_tree().change_scene_to_file(Global.scenerandomChoose) #TODO : correct the error with the timer (it doesn't end/start?)
+		GoToHomeMenu(Global.scenehomeMenu) #TODO : correct the error with the timer (it doesn't end/start?)
 
 func writeTimeRemaining():
 	if !checkGameHasEnded:
@@ -88,7 +88,6 @@ func changeShurikenCooldown():
 		Global.shurikencooldown -= 0.05
 	shurikenTimer.wait_time = Global.shurikencooldown
 
-
 func _on_game_timer_timeout():
 	if Global.knightDamageTaken > Global.goldKnightDamageTaken:
 		$player2win.visible = true
@@ -102,17 +101,14 @@ func _on_game_timer_timeout():
 		checkOvertime = true
 
 func _on_timer_before_home_timeout():
-	get_tree().change_scene_to_file(Global.scenerandomChoose)
-
+	GoToHomeMenu(Global.scenehomeMenu)
 
 func _on_last_timer_overtime_timeout():
-	get_tree().change_scene_to_file(Global.scenerandomChoose)
-
+	GoToHomeMenu(Global.scenehomeMenu)
 
 func _on_frog_attack_timeout():
 	frogAnimationTimer.start()
 	Global.checkFrogAreAttacking = true
-
 
 func _on_frog_animation_time_timeout():
 	if !checkGameHasEnded:
@@ -128,3 +124,6 @@ func _on_frog_animation_time_timeout():
 		Global.checkRedFrogCanAttack = true
 		Global.checkGreenFrogCanAttack = true
 		$frogAttack.start()
+
+func GoToHomeMenu(scene):
+	get_tree().change_scene_to_file(scene)

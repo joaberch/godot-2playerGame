@@ -53,7 +53,7 @@ func checkWinner():
 		player2win.position.x = camera.offset.x + 450
 	
 	if !pinkFish && !redFish:
-		get_tree().change_scene_to_file(Global.scenerandomChoose)
+		get_tree().change_scene_to_file(Global.scenehomeMenu)
 
 func moveCamera():
 	camera.offset.x += cameraSpeed
